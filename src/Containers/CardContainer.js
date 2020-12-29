@@ -2,7 +2,9 @@ import React from 'react'
 
 function CardContainer(){
 return(
-  <h2>I'm a Card Container!</h2>
+  <div className="card-container">
+  <h2>Card Container</h2>
+  </div>
 )
 
 }

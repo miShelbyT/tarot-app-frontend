@@ -1,8 +1,16 @@
 import React from 'react'
+import CommentCard from '../Components/CommentCard'
+import CardContainer from '../Containers/CardContainer'
+import ReadingContainer from '../Containers/ReadingContainer'
 
 function MainContainer(){
 return (
-  <h2>I'm a Main Container!</h2>
+  <>
+  
+  <CommentCard />
+  <ReadingContainer />
+  <CardContainer />
+  </>
 
 )
 

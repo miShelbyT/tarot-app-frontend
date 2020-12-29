@@ -1,3 +1,6 @@
+
+/* Grid CSS */
+
 .parent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -8,5 +11,23 @@
   
   .header { grid-area: 1 / 1 / 2 / 6; }
   .reading-container { grid-area: 2 / 1 / 8 / 2; }
-  .reading-comments { grid-area: 6 / 2 / 8 / 5; }
+  .comment-card { grid-area: 6 / 2 / 8 / 5; }
   .card-container { grid-area: 2 / 2 / 6 / 5; }
+
+/* Header Styling */
+  
+  .header {
+    background: rgb(204, 66, 204);
+    color:aliceblue;
+    padding-left: 10px;
+  }
+
+  .reading-container {
+    background: rgb(114, 36, 114);
+    color:aliceblue;
+  }
+
+  .comment-card {
+    background: rgb(68, 35, 121);
+    color:aliceblue;
+  }

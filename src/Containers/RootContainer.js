@@ -1,16 +1,17 @@
 import React from 'react'
 import Header from '../Components/Header'
+import MainContainer from './MainContainer'
 
 function RootContainer(){
 
   
   return(
-    <>
+    <div className="parent">
     <Header />
-    <h2>I'm a Root Container!</h2>
-    </>
+    <MainContainer />
+    </div>
     )
     
-    }
+}
 
 export default RootContainer
