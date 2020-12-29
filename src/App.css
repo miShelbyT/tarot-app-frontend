@@ -3,18 +3,18 @@
 
 .parent {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(11, 1fr);
+  grid-template-columns: repeat(5, 2fr);
+  grid-template-rows: repeat(14, 2fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   }
   
   .header { grid-area: 1 / 1 / 2 / 6; }
-  .reading-container { grid-area: 2 / 1 / 11 / 2; }
-  .comment-card { grid-area: 8 / 2 / 11 / 5; }
-  .card-container { grid-area: 2 / 2 / 6 / 5; }
+  .reading-container { grid-area: 2 / 1 / 11 / 1; }
+  .comment-card { grid-area: 8 / 2 / 11 / 6; }
+  .card-container { grid-area: 2 / 2 / 8 / 6; }
 
-/* Header Styling */
+/* Component Styling */
   
   .header {
     background: rgb(204, 66, 204);
@@ -30,4 +30,17 @@
   .comment-card {
     background: rgb(68, 35, 121);
     color:aliceblue;
+  }
+
+  .card-card {
+    max-height: 300px;
+    display: inline-block;
+    width: 350px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .card-img{
+    padding: 20px;
+    
   }
