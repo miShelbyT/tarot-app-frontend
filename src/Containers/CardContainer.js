@@ -12,7 +12,7 @@ class CardContainer extends React.Component {
   renderCard = () => {
 
       const randomCard = this.props.cards[Math.floor(Math.random() * this.props.cards.length)]
-      console.log("Random Card",randomCard)
+      // console.log("Random Card",randomCard)
       return (
       <>
       <CardCard key={randomCard.id} cardObj={randomCard} />

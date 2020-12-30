@@ -10,7 +10,7 @@ function CardCard(props){
               maxWidth:"200px",
               display:"flex"
               }} src={props.cardObj.img_url} alt={props.cardObj.name}/>
-              <p1>Meaning: {props.cardObj.meaning}</p1>
+              <p>Meaning: {props.cardObj.meaning}</p>
           </div>
         </div>
     )

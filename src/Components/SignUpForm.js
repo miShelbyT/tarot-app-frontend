@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { addUser } from '../redux/actions'
 
 class SignUpForm extends React.Component {
 
@@ -12,20 +13,20 @@ class SignUpForm extends React.Component {
       this.setState({ [e.target.name]: e.target.value })
     }
 
-    // submitHandler = (e) => {
-    //   e.preventDefault()
-    //   this.props.submitHandler(this.state)
-    //   this.setState({
-    //     ["user_name"]: "",
-    //     password: ""
-    //   })
+    submitHandler = (e) => {
+      e.preventDefault()
+      this.props.submitHandler(this.state)
+      this.setState({
+        ["user_name"]: "",
+        password: ""
+      })
   
-    // }
+    }
 
     render(){
         return(
             <>
-            <form onSubmit={""}>
+            <form onSubmit={this.submitHandler}>
                 <input
                     type="text"
                     value={this.state["user_name"]}
