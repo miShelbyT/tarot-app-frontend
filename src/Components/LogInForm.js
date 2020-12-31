@@ -1,18 +1,58 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { findUser } from '../redux/actions'
 
 class LogInForm extends React.Component{
 
-    state = {
-
+    state ={
+        ["user_name"]: "",
+        password: ""
     }
+
+    changeHandler = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submitHandler = (e) => {
+        e.preventDefault()
+        this.props.submitHandler(this.state)
+        this.setState({
+          ["user_name"]: "",
+          password: ""
+        })
+    
+      }
 
     render(){
         return(
             <>
+             <form onSubmit={this.submitHandler}>
+                <input
+                    type="text"
+                    value={this.state["user_name"]}
+                    name={["user_name"]}
+                    onChange={this.changeHandler}
+                    placeholder="Username"
+                />
+                <input
+                    type="password"
+                    value={this.state.password}
+                    name="password"
+                    onChange={this.changeHandler}
+                    placeholder="Password"
+                />
+                <button>Log In</button>
+            </form>
             </>
         )
     }
 
 }
 
-export default LogInForm
+const mdp = (dispatch) => {
+    return {
+        submitHandler: (userObj) => dispatch(findUser(userObj))
+    }
+}
+
+export default connect(null, mdp)(LogInForm)

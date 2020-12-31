@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux'
-import { GET_CARDS } from './actionTypes'
+import { GET_CARDS, ADD_USER, FIND_USER } from './actionTypes'
 
 
 const defaultState = {
-    cards : []
+    cards : [],
+    user : null
 }
 
 
@@ -18,11 +19,24 @@ function cardsReducer(currentState = defaultState.cards, action){
 
 }
 
+function userReducer(currentState = defaultState.user, action){
+        switch(action.type) {
+        case ADD_USER:
+            return action.payload['user_name']
+        case FIND_USER:
+            return action.payload['user_name']
+        default:
+            return currentState
+    }
+    
+}
+
 
 
 
 const rootReducer = combineReducers({
-    cards: cardsReducer
+    cards: cardsReducer,
+    user: userReducer
 })
 
 

@@ -7,12 +7,13 @@ function RootContainer(){
 
   
   return(
+    <>
+    <Welcome />
     <div className="parent">
     <Header />
-    <Welcome />
     <MainContainer />
-    
     </div>
+    </>
     )
     
 }
