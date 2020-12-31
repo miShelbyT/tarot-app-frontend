@@ -4,15 +4,15 @@
 .parent {
   display: grid;
   grid-template-columns: repeat(5, 2fr);
-  grid-template-rows: repeat(14, 2fr);
+  grid-template-rows: repeat(5, 2fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   }
   
-  .header { grid-area: 1 / 1 / 2 / 6; }
+  .header { grid-area: 1 / 1 / 1 / 6; }
   .reading-container { grid-area: 2 / 1 / 11 / 1; }
   .comment-card { grid-area: 8 / 2 / 11 / 6; }
-  .card-container { grid-area: 2 / 2 / 8 / 6; }
+  .card-container { grid-area: 2 / 2 / 6 / 6; }
 
 /* Component Styling */
   
@@ -33,14 +33,15 @@
   }
 
   .card-card {
-    max-height: 300px;
+    max-height: 500px;
     display: inline-block;
     width: 350px;
     text-align: justify;
     text-justify: inter-word;
+    overflow: auto;
   }
 
   .card-img{
     padding: 20px;
-    
+    text-align: center;
   }

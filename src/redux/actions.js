@@ -1,4 +1,4 @@
-import {GET_CARDS, ADD_USER, FIND_USER} from './actionTypes'
+import {GET_CARDS, ADD_USER, FIND_USER, LOG_OUT} from './actionTypes'
 
 
 export const getCards = () => {
@@ -55,4 +55,8 @@ export const findUser = (userObj) => {
     })
     .catch(console.log)
   }
+}
+
+export const logOut = () => {
+  return { type: LOG_OUT }
 }

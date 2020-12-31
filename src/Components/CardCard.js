@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 
 function CardCard(props){
 
@@ -8,7 +8,7 @@ function CardCard(props){
           <div  className="card-img">
           <img style={{
               maxWidth:"200px",
-              display:"flex"
+              display:"flex",
               }} src={props.cardObj.img_url} alt={props.cardObj.name}/>
               <p>Meaning: {props.cardObj.meaning}</p>
           </div>

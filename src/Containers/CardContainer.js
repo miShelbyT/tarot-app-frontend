@@ -9,26 +9,25 @@ class CardContainer extends React.Component {
     this.props.getCards()
   }
 
-  renderCard = () => {
+  renderCards = () => {
 
-      const randomCard = this.props.cards[Math.floor(Math.random() * this.props.cards.length)]
-      // console.log("Random Card",randomCard)
-      return (
-      <>
-      <CardCard key={randomCard.id} cardObj={randomCard} />
-      </>
-      )
-
+    let cards = []
+    let randomCard
+    let n = 3
+    for (let i = 0; i < n; ++i) {
+      randomCard = this.props.cards[Math.floor(Math.random() * this.props.cards.length)]
+      if (!cards.includes(randomCard)){
+        cards.push(randomCard)
+      } else {
+       n++
+     }
+    }
+    
+    return (
+      cards.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
+    )
   }
 
-  renderCards = () => {
-    let cards = []
-    for (let i = 0; i < 3; ++i) {
-      cards.push(this.renderCard())
-    
-    }
-    return cards
-}
 
   render() {
     // console.log(this.props.cards)

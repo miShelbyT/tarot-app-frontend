@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import { GET_CARDS, ADD_USER, FIND_USER } from './actionTypes'
+import { GET_CARDS, ADD_USER, FIND_USER, LOG_OUT } from './actionTypes'
 
 
 const defaultState = {
@@ -25,6 +25,8 @@ function userReducer(currentState = defaultState.user, action){
             return action.payload['user_name']
         case FIND_USER:
             return action.payload['user_name']
+        case LOG_OUT:
+            return null
         default:
             return currentState
     }
