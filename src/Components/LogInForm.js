@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { findUser } from '../redux/actions'
+import { logIn } from '../redux/actions'
 
 class LogInForm extends React.Component{
 
@@ -41,7 +41,7 @@ class LogInForm extends React.Component{
                     onChange={this.changeHandler}
                     placeholder="Password"
                 />
-                <button>Log In</button>
+                <button className="submit-button" >Log In</button>
             </form>
             </>
         )
@@ -51,7 +51,7 @@ class LogInForm extends React.Component{
 
 const mdp = (dispatch) => {
     return {
-        submitHandler: (userObj) => dispatch(findUser(userObj))
+        submitHandler: (userObj) => dispatch(logIn(userObj))
     }
 }
 

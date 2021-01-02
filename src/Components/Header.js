@@ -12,12 +12,12 @@ function Header(props){
     
     return(
         <div className="header">
-        <h1>Third Eye Tarot</h1>
+        <h1 className="app-name" >Third Eye Tarot</h1>
 
         {props.user?  
         <>
-        <h1>👁 Welcome {props.user}!!👁</h1>
-        <button onClick={clickHandler}>Log Out Here</button>
+        <h1 className="welcome-header">👁 Welcome {props.user}!!👁</h1>
+        <button className="logout-button" onClick={clickHandler}>Log Out Here</button>
         </>
         :
         <LogInForm />

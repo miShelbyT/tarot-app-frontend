@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentCard from '../Components/CommentCard'
+import ReadingForm from '../Components/ReadingForm'
 import CardContainer from '../Containers/CardContainer'
 import ReadingContainer from '../Containers/ReadingContainer'
 
@@ -7,7 +7,7 @@ function MainContainer(){
 return (
   <>
   
-  <CommentCard />
+  <ReadingForm />
   <ReadingContainer />
   <CardContainer />
   </>

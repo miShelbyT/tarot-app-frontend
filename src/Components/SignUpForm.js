@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addUser } from '../redux/actions'
+import { signUp } from '../redux/actions'
 
 class SignUpForm extends React.Component {
 
@@ -41,7 +41,7 @@ class SignUpForm extends React.Component {
                     onChange={this.changeHandler}
                     placeholder="Password"
                 />
-                <button>Sign Up</button>
+                <button className="submit-button" >Sign Up</button>
             </form>
 
             </>
@@ -51,7 +51,7 @@ class SignUpForm extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { submitHandler: (userObj) => dispatch(addUser(userObj)) }
+  return { submitHandler: (userObj) => dispatch(signUp(userObj)) }
 }
 
 export default connect(null, mapDispatchToProps)(SignUpForm)

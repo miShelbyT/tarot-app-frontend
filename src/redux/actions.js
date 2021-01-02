@@ -1,4 +1,4 @@
-import {GET_CARDS, ADD_USER, FIND_USER, LOG_OUT} from './actionTypes'
+import {GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING} from './actionTypes'
 
 
 export const getCards = () => {
@@ -14,7 +14,7 @@ export const getCards = () => {
   }
 }
 
-export const addUser = (userObj) => {
+export const signUp = (userObj) => {
   return function(dispatch){
     fetch("http://localhost:3000/api/v1/users/",{
       method: "POST",
@@ -27,14 +27,14 @@ export const addUser = (userObj) => {
     .then(r => r.json())
     .then(data => {
       console.log("Add User Fetch Data", data['user_name'])
-      dispatch({type: ADD_USER, payload: data})
+      dispatch({type: SIGN_UP, payload: data})
       
     })
     .catch(console.log)
   }
 }
 
-export const findUser = (userObj) => {
+export const logIn = (userObj) => {
   return function(dispatch){
     fetch("http://localhost:3000/api/v1/users/login", {
       method: "POST",
@@ -51,7 +51,7 @@ export const findUser = (userObj) => {
       } else {
         console.log("user not found")
       }
-    dispatch({type: FIND_USER, payload: data})
+    dispatch({type: LOG_IN, payload: data})
     })
     .catch(console.log)
   }
@@ -59,4 +59,23 @@ export const findUser = (userObj) => {
 
 export const logOut = () => {
   return { type: LOG_OUT }
+}
+
+export const createReading = (readingObj) => {
+  return function(dispatch){
+    fetch("http://localhost:3000/api/v1/readings",{
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json",
+        "Accepts":"application/json"
+      },
+      body: JSON.stringify(readingObj)
+    })
+    .then(r => r.json())
+    .then(data => {
+      console.log("GOOD JOB Succesfully created reading!:",data)
+    })
+    .catch(console.log)
+  }
+  
 }
