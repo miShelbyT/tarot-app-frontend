@@ -22,7 +22,6 @@ class CardContainer extends React.Component {
        n++
      }
     }
-    
     return (
       cards.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
     )
