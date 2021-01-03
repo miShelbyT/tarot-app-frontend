@@ -7,7 +7,8 @@ class CardContainer extends React.Component {
   
   state = {
     readingCards: [],
-    cardsDrawn: 0
+    cardsDrawn: 0,
+    cardsSaved: false
   }
   
   componentDidMount(){
@@ -34,8 +35,9 @@ class CardContainer extends React.Component {
   }
 
   renderCards = () => {
+    let cardsArray = this.state.readingCards
     return (
-      this.state.readingCards.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
+      cardsArray.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
     )
   }
 
@@ -46,10 +48,13 @@ class CardContainer extends React.Component {
     }
   }
 
-  saveCardsToReading = () => {
-    this.props.saveCards(this.state.readingCards, this.props.readingId)
+  componentDidUpdate() {
+      if (this.props.readingId > 0){
+          this.props.saveCards(this.state.readingCards, this.props.readingId)
+          console.log("in save cards function:",this.state.readingCards)
+          this.setState({ cardsSaved: true})
+      }
   }
-
 
   render() {
     // console.log(this.props.cards)
@@ -57,8 +62,7 @@ class CardContainer extends React.Component {
       <div className="card-container">
         <h2>Consult the Cards</h2>
         {this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards() }
-        {this.state.cardsDrawn < 5 ? <button className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
-        {this.props.readingId > 0 ? this.saveCardsToReading() : null}
+        {this.state.cardsDrawn < 5 && !this.state.cardsSaved ? <button className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
       </div>
     )
   }
