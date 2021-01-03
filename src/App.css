@@ -50,6 +50,21 @@
     display: inline-block;
   }
 
+  .card-button {
+    /* position: absolute; */
+    /* right:    0;
+    bottom:   0; */
+    background-color: #c21fc7;
+    border: none;
+    color: white;
+    font-size: 15pt;
+    padding: 10px 12px;
+    margin: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
   .reading-container {
     background: rgb(114, 36, 114);
     color:aliceblue;
@@ -114,22 +129,6 @@
   .app-name{
     display: inline-block;
   }
-
-
-  .parent {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-    
-    .header { grid-area: 1 / 1 / 2 / 7; }
-    .reading-container { grid-area: 2 / 1 / 11 / 2; }
-    .card-container { grid-area: 2 / 2 / 7 / 7; }
-    .reading-form { grid-area: 7 / 2 / 11 / 7; }
-
-
 
 
 /* OLD GRID

@@ -1,4 +1,4 @@
-import {GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING} from './actionTypes'
+import {GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS} from './actionTypes'
 
 
 export const getCards = () => {
@@ -74,8 +74,35 @@ export const createReading = (readingObj) => {
     .then(r => r.json())
     .then(data => {
       console.log("GOOD JOB Succesfully created reading!:",data)
+      dispatch({type: CREATE_READING, payload: data})
     })
     .catch(console.log)
   }
   
 }
+
+export const saveCards = (cardsArray, readingId) => {
+  return function(dispatch){
+    cardsArray.forEach(cardObj => {
+      let newCardObj = {
+        ["card_id"]: cardObj.id,
+        ["reading_id"]: readingId
+      }
+    
+      fetch("http://localhost:3000/api/v1/card_readings",{
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json",
+          "Accepts":"application/json"
+        },
+        body: JSON.stringify(newCardObj)
+      })
+      .then(r => r.json())
+      .then(data => {
+        console.log("Save Cards Post",data)
+      })
+    })
+    dispatch({type: SAVE_CARDS})
+  }
+}
+

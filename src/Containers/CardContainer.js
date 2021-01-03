@@ -1,30 +1,53 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCards } from '../redux/actions'
+import { getCards,saveCards } from '../redux/actions'
 import CardCard from '../Components/CardCard'
 
 class CardContainer extends React.Component {
+  
+  state = {
+    readingCards: [],
+    cardsDrawn: 0
+  }
   
   componentDidMount(){
     this.props.getCards()
   }
 
-  renderCards = () => {
-
-    let cards = []
+  dealCards = () => {
+    // let cards = []
     let randomCard
     let n = 3
     for (let i = 0; i < n; ++i) {
       randomCard = this.props.cards[Math.floor(Math.random() * this.props.cards.length)]
-      if (!cards.includes(randomCard)){
-        cards.push(randomCard)
+      if (!this.state.readingCards.includes(randomCard)){
+        // cards.push(randomCard)
+        // console.log("deal cards",cards)
+        this.setState({
+          readingCards: [...this.state.readingCards, randomCard]
+        })
       } else {
        n++
      }
     }
+
+  }
+
+  renderCards = () => {
     return (
-      cards.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
+      this.state.readingCards.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
     )
+  }
+
+  clickHandler = () => {
+    if(this.state.cardsDrawn < 5){
+      this.dealCards()
+      this.setState((prevState) =>({ cardsDrawn: prevState.cardsDrawn + 1 }))
+    }
+  }
+
+  saveCardsToReading = () => {
+    this.props.saveCards(this.state.readingCards, this.props.readingId)
   }
 
 
@@ -32,8 +55,10 @@ class CardContainer extends React.Component {
     // console.log(this.props.cards)
     return (
       <div className="card-container">
-        <h2>Card Container</h2>
-        {this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards()}
+        <h2>Consult the Cards</h2>
+        {this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards() }
+        {this.state.cardsDrawn < 5 ? <button className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
+        {this.props.readingId > 0 ? this.saveCardsToReading() : null}
       </div>
     )
   }
@@ -42,13 +67,17 @@ class CardContainer extends React.Component {
 
 //Passing array of cards to state
 const mapStateToProps = (state) => {
-  return { cards: state.cards }
+  return { 
+    cards: state.cards,
+    readingId: state.readingId
+  }
 }
 
 //Passing function to get cards to props
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCards: () => dispatch(getCards())
+    getCards: () => dispatch(getCards()),
+    saveCards: (cardsArray, readingId) => dispatch(saveCards(cardsArray, readingId))
   }
 }
 
