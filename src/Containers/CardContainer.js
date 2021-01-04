@@ -42,6 +42,8 @@ class CardContainer extends React.Component {
   }
 
   clickHandler = () => {
+    let question = prompt("What Is Your Question?", "I have a question")
+    console.log(question)
     if(this.state.cardsDrawn < 5){
       this.dealCards()
       this.setState((prevState) =>({ cardsDrawn: prevState.cardsDrawn + 1 }))
