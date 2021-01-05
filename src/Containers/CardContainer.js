@@ -21,7 +21,7 @@ class CardContainer extends React.Component {
     // let cards = []
     let randomCard
     let n = 3
-    for (let i = 0; i < n; ++i) {
+    for (let i = 0; i < n; i++) {
       randomCard = this.props.cards[Math.floor(Math.random() * this.props.cards.length)]
       if (!this.state.readingCards.includes(randomCard)) {
         // cards.push(randomCard)
@@ -55,11 +55,13 @@ class CardContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    
     if (this.props.readingId !== this.state.lastKnownReadingId) {
       this.setState({lastKnownReadingId: this.props.readingId})
+      
       this.props.saveCards(this.state.readingCards, this.props.readingId)
-      this.props.getReading(this.props.readingId, this.props.history)
+      .then(() => this.props.getReading(this.props.readingId, this.props.history))
+      
+      
       console.log("in save cards function:", this.state.readingCards)
     }
   }

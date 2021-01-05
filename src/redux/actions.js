@@ -98,14 +98,15 @@ export const getReading = (readingId, history) => {
 
 
 export const saveCards = (cardsArray, readingId) => {
-  return function(dispatch){
-    cardsArray.forEach(cardObj => {
+  return  async (dispatch) => {
+    for (let i = 0; i < cardsArray.length; i++) {
+      const cardObj = cardsArray[i]
       let newCardObj = {
         ["card_id"]: cardObj.id,
         ["reading_id"]: readingId
       }
     
-      fetch("http://localhost:3000/api/v1/card_readings",{
+      await fetch("http://localhost:3000/api/v1/card_readings", {
         method: "POST",
         headers: {
           "Content-Type":"application/json",
@@ -115,9 +116,11 @@ export const saveCards = (cardsArray, readingId) => {
       })
       .then(r => r.json())
       .then(data => {
-        console.log("Save Cards Post",data)
+        console.log("Save Cards Post", data)
       })
-    })
+    }
+    
+    
     dispatch({type: SAVE_CARDS})
   }
 }
