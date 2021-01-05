@@ -1,4 +1,4 @@
-import {GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS} from './actionTypes'
+import {GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING} from './actionTypes'
 
 
 export const getCards = () => {
@@ -72,14 +72,30 @@ export const createReading = (readingObj) => {
       body: JSON.stringify(readingObj)
     })
     .then(r => r.json())
-    .then(data => {
-      console.log("GOOD JOB Succesfully created reading!:",data)
-      dispatch({type: CREATE_READING, payload: data})
+    .then(newReadingObj => {
+      console.log("GOOD JOB Succesfully created reading!:",newReadingObj)
+      dispatch({type: CREATE_READING, payload: newReadingObj})
+      // history.push(`/reading/${newReadingObj.id}`)
     })
     .catch(console.log)
   }
-  
 }
+
+
+export const getReading = (readingId, history) => {
+  return function(dispatch){
+    fetch(`http://localhost:3000/api/v1/readings/${readingId}`)
+    .then(r => r.json())
+    .then(newReadingObj => {
+      console.log("GOOD JOB Succesfully got reading!:",newReadingObj)
+      dispatch({type: GET_READING, payload: newReadingObj})
+      history.push(`/reading/${newReadingObj.id}`)
+    })
+    .catch(console.log)
+  }
+}
+
+
 
 export const saveCards = (cardsArray, readingId) => {
   return function(dispatch){

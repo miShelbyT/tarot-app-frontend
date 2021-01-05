@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { createReading } from '../redux/actions'
+import ReadingCard from './ReadingCard'
 
 
 class ReadingForm extends React.Component {
@@ -10,7 +12,7 @@ class ReadingForm extends React.Component {
         name: "",
         question: "",
         ["user_comment"]: "",
-        ["is_favorite"]: false
+        beenClicked: false
     }
 
     changeHandler = (e) => {
@@ -19,7 +21,13 @@ class ReadingForm extends React.Component {
 
   submitHandler = (e) => {
       e.preventDefault()
-      this.props.submitHandler(this.state)
+      let readingObj = {
+        ["user_id"]: this.state["user_id"],
+        name: this.state.name,
+        question: this.state.question,
+        ["user_comment"]: this.state["user_comment"]
+      }
+      this.props.submitHandler(readingObj, this.props.history)
       this.setState({
         name: "",
         question: "",
@@ -28,10 +36,26 @@ class ReadingForm extends React.Component {
   
     }
 
+    clickHandler = () => {
+        this.setState({beenClicked: !this.state.beenClicked})
+
+        // if(this.state.beenClicked){
+        //     this.setState({beenClicked: false})
+        // } else {
+        //     this.setState({beenClicked: true})
+        // }
+    }
+
+
     render(){
+
+       
         return(
+
             <div className="reading-form">
-                <h1>Reading Form:</h1>
+                <button className="submit-button" onClick={this.clickHandler}>{this.state.beenClicked ? "Hide Form" : "Create New Reading" }</button>
+                {this.state.beenClicked ? 
+                
                 <form onSubmit={this.submitHandler}>
                     <input
                         type="text"
@@ -55,6 +79,9 @@ class ReadingForm extends React.Component {
                     /><br></br><br></br>
                     <button className="submit-button">Save Reading</button>
                 </form>
+                    :
+                    null
+                }
             </div>
         )
     }
@@ -64,7 +91,7 @@ class ReadingForm extends React.Component {
 
 function mdp(dispatch){
     return {
-        submitHandler: (readingObj) => dispatch(createReading(readingObj))
+        submitHandler: (readingObj, history) => dispatch(createReading(readingObj, history))
     }
 }
 
@@ -72,4 +99,4 @@ function msp (state){
   return { userId: state.userId }
 }
 
-export default connect(msp,mdp)(ReadingForm)
+export default withRouter(connect(msp,mdp)(ReadingForm))

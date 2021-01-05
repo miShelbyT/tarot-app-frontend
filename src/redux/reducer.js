@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux'
-import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS } from './actionTypes'
+import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING } from './actionTypes'
 
 
 const defaultState = {
   cards: [],
   user: null,
   userId: 0,
-  readingId: 0
+  readingId: 0,
+  readings: []
 }
 
 
@@ -53,8 +54,15 @@ function readingReducer(currentState = defaultState.readingId, action) {
   switch (action.type) {
     case CREATE_READING:
       return action.payload.id
-    case SAVE_CARDS:
-      return 0 
+    default:
+      return currentState
+  }
+}
+
+function readingsReducer(currentState = defaultState.readings, action) {
+  switch (action.type) {
+    case GET_READING:
+      return [...currentState, action.payload]
     default:
       return currentState
   }
@@ -62,11 +70,13 @@ function readingReducer(currentState = defaultState.readingId, action) {
 
 
 
+
 const rootReducer = combineReducers({
   cards: cardsReducer,
   user: userReducer,
   userId: userIdReducer,
-  readingId: readingReducer
+  readingId: readingReducer,
+  readings: readingsReducer
 })
 
 

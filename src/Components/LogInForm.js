@@ -41,7 +41,7 @@ class LogInForm extends React.Component{
                     onChange={this.changeHandler}
                     placeholder="Password"
                 />
-                <button className="submit-button" >Log In</button>
+                <button className="logout-button" >Log In</button>
             </form>
             </>
         )

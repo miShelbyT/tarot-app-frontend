@@ -4,7 +4,7 @@ function CardCard(props) {
 
   return (
     <div className="card-card" >
-      <h4 style={{ textAlign: "center" }}>{props.cardObj.name} </h4>
+      <h4 style={{ textAlign: "center", margin: "7px 7px"}}>{props.cardObj.name} </h4>
       <div className="card-img">
         <img style={{
           maxWidth: "200px",

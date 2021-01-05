@@ -41,7 +41,7 @@ class SignUpForm extends React.Component {
                     onChange={this.changeHandler}
                     placeholder="Password"
                 />
-                <button className="submit-button" >Sign Up</button>
+                <button className="logout-button" >Sign Up</button>
             </form>
 
             </>

@@ -4,15 +4,15 @@
 .parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(20, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   }
   
   .header { grid-area: 1 / 1 / 2 / 7; }
-  .reading-container { grid-area: 2 / 1 / 11 / 2; }
-  .card-container { grid-area: 2 / 2 / 7 / 7; }
-  .reading-form { grid-area: 7 / 2 / 11 / 7; }
+  .reading-container { grid-area: 2 / 1 / 20 / 2; }
+  .card-container { grid-area: 2 / 2 / 13 / 7; }
+  .reading-form { grid-area: 13 / 2 / 20 / 7; }
 
 /* Component Styling */
   
@@ -35,7 +35,7 @@
     display: inline-block;
   }
 
-  .logout-button {
+  .logout-button {  /* class controls log in, sign up and log out buttons */
     /* position: absolute; */
     /* right:    0;
     bottom:   0; */
@@ -43,8 +43,8 @@
     border: none;
     color: white;
     font-size: 15pt;
-    padding: 10px 12px;
-    margin: 8px 15px;
+    padding: 7px 10px;
+    margin: 7px 7px;
     cursor: pointer;
     border-radius: 4px;
     display: inline-block;
@@ -80,7 +80,7 @@
   }
 
   .card-card {
-    max-height: 500px;
+    max-height: 450px;
     display: inline-block;
     width: 350px;
     text-align: justify;
@@ -89,7 +89,6 @@
   }
 
   .card-img{
-    padding: 20px;
     text-align: center;
   }
 
@@ -105,17 +104,19 @@
   input[type=text], [type=password]{
     width: 35%;
     padding: 12px 20px;
+    margin: 4px 10px 4px 10px;
     border-radius: 4px;
     border: 1px solid #ccc;
     background-color: #f8f8f8;
   }
 
-  .submit-button {
+  .submit-button {    /* class controls create reading/hide form and save reading buttons*/
     background-color: #e377d6;
     border: none;
     color: white;
     font-size: 15pt;
     padding: 8px 8px;
+    margin: 0px 10px 10px 10px;
     cursor: pointer;
     border-radius: 4px;
   }
