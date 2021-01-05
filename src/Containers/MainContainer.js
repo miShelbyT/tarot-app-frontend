@@ -8,11 +8,18 @@ import { connect } from 'react-redux'
 
 function MainContainer(props) {
   
+  const controlRenders = () => { 
+    // console.log("window OBJECT:", props.match.path)
+    if(props.match.path !== '/home'){
+      
+    }
+  }
   return (
     <>
       <ReadingForm />
       <ReadingContainer />
       <CardContainer />
+      {controlRenders()}
 
       
        

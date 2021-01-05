@@ -16,8 +16,8 @@ function Header(props){
 
         {props.user?  
         <>
-        <h1 className="welcome-header">👁 Welcome {props.user}!!👁</h1>
-        <button className="logout-button" onClick={clickHandler}>Log Out Here</button>
+        <h1 className="welcome-header">👁 Welcome {props.user}👁</h1>
+        <button className="logout-button" onClick={clickHandler}>Log Out</button>
         </>
         :
         <LogInForm />

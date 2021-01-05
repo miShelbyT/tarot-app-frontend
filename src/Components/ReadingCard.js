@@ -1,15 +1,23 @@
 import React from 'react'
+import CardCard from './CardCard'
+
 
 function ReadingCard(props){
 
-    console.log(props)
+    // console.log("In Reading Card:",props)
+    const renderCards = () => {
+        let cardsArray = props.reading.cards
+        return (
+          cardsArray.map(cardObj => <CardCard key={cardObj.id} cardObj={cardObj} />)
+        )
+      }
     
     return (
-        <div className="reading-form-card">
-        <h1>Reading</h1>
-        <h3>{props.reading.name}</h3>
-        <p>{props.reading.question}</p>
-        <p>{props.reading["user_comment"]}</p>
+        <div className="card-container">
+        <h1>{props.reading.name}</h1>
+        <h3>{props.reading.question}</h3>
+        {renderCards()}
+        <h3>{props.reading["user_comment"]}</h3>
         </div>
     )
 
