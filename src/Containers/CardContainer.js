@@ -53,8 +53,10 @@ class CardContainer extends React.Component {
 
   componentDidUpdate() {
     
-    if (this.props.readingId !== this.state.lastKnownReadingId && !this.props.readingId < 1) {
+    if (this.props.readingId !== this.state.lastKnownReadingId) {
       this.setState({lastKnownReadingId: this.props.readingId})
+    }
+    if (this.props.readingId !== this.state.lastKnownReadingId) {
       
       this.props.saveCards(this.state.readingCards, this.props.readingId)
       .then(() => this.props.getReading(this.props.readingId, this.props.history))      

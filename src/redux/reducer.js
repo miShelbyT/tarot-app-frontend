@@ -50,10 +50,12 @@ function userIdReducer(currentState = defaultState.userId, action) {
 
 }
 
-function readingReducer(currentState = defaultState.readingId, action) {
+function readingIdReducer(currentState = defaultState.readingId, action) {
   switch (action.type) {
     case CREATE_READING:
       return action.payload.id
+    case LOG_OUT:
+     return 0
     default:
       return currentState
   }
@@ -75,7 +77,7 @@ const rootReducer = combineReducers({
   cards: cardsReducer,
   user: userReducer,
   userId: userIdReducer,
-  readingId: readingReducer,
+  readingId: readingIdReducer,
   readings: readingsReducer
 })
 
