@@ -23,9 +23,8 @@ class ReadingCard extends React.Component {
         )
     }
 
-    clickHandler = () => {
-        console.log("Clicking Button!!!")
-        return <Redirect to="/home" />
+    readingHandleClick = () => {
+        this.props.history.push('/new-reading');
     }
 
     formClickHandler = () => {
@@ -82,7 +81,7 @@ class ReadingCard extends React.Component {
                 }
                 <button className="submit-button" onClick={this.formClickHandler}>{!this.state.beenClicked ? "Edit Comment" : "Hide Form"}</button>
                 <button className="submit-button" onClick={this.deleteClickHandler}>Delete Reading</button>
-                <button className="submit-button" onClick={this.clickHandler}>New Reading</button>
+                <button className="submit-button" onClick={this.readingHandleClick}>New Reading</button>
 
             </div>
         )

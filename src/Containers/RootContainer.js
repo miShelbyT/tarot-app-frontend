@@ -5,6 +5,7 @@ import Welcome from '../Components/Welcome'
 import { connect } from 'react-redux'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import ReadingCard from '../Components/ReadingCard'
+import Info from '../Components/Info'
 
 
 function RootContainer(props){
@@ -15,8 +16,10 @@ function RootContainer(props){
     
     <Header />
     <Switch>
+    <Route path="/learn-more" render={() => <MainContainer />}/>
     <Route path="/welcome" render={() => <Welcome />} />
     <Route path="/home" render={(routerProps) => <MainContainer routerProps={routerProps}/>}/>
+    <Route path="/new-reading" render={(routerProps) => <MainContainer routerProps={routerProps}/>}/>
     <Route path='/reading/:id' render={({ match }) => {
         let readingId = parseInt(match.params.id)
         let foundReading = props.readings.find(reading => reading.id === readingId)

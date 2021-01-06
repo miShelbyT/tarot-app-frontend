@@ -12,16 +12,18 @@ function Header(props) {
     }
 
     const homeClickHandler = () => {
-         props.goHome()
+        props.goHome()
     }
 
     return (
         <div className="header">
-            <NavLink to='/home'>
-                <h1 onClick={homeClickHandler} className="app-name" >Third Eye Tarot</h1>
-            </NavLink>
-
-
+            {props.user ?
+                <NavLink to='/home'>
+                    <h1 onClick={homeClickHandler} className="app-name" >Third Eye Tarot</h1>
+                </NavLink>
+                :
+                <h1 className="app-name" >Third Eye Tarot</h1>
+            }
 
             {props.user ?
                 <>
