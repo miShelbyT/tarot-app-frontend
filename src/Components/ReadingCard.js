@@ -2,7 +2,7 @@ import React from 'react'
 import CardCard from './CardCard'
 import { Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { updateReading, deleteReading } from '../redux/actions'
+import { updateReading, deleteReading, getReadings } from '../redux/actions'
 
 
 
@@ -53,13 +53,15 @@ class ReadingCard extends React.Component {
     }
 
     deleteClickHandler = () => {
-        this.props.deleteReading(this.props.reading.id, this.props.history)
+        this.props.deleteReading(this.props.reading.id, this.props.history).then(x => {
+            this.props.getReadings(this.props.reading["user_id"])
+        })
     }
 
 
 
     render() {
-        console.log(this.state["user_comment"])
+        // console.log(this.state["user_comment"])
         return (
             <div className="card-container">
                 <h1>{this.props.reading.name}</h1>
@@ -91,7 +93,8 @@ class ReadingCard extends React.Component {
 function mdp(dispatch) {
     return {
         updateReading: (readingObj, readingId) => dispatch(updateReading(readingObj, readingId)),
-        deleteReading: (readingId, history) => dispatch(deleteReading(readingId, history))
+        deleteReading: (readingId, history) => dispatch(deleteReading(readingId, history)),
+        getReadings: (userId) => dispatch(getReadings(userId))
     }
 }
 

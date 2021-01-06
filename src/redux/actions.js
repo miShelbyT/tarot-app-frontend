@@ -27,7 +27,7 @@ export const signUp = (userObj) => {
     })
       .then(r => r.json())
       .then(data => {
-        console.log("Add User Fetch Data", data['user_name'])
+        // console.log("Add User Fetch Data", data['user_name'])
         dispatch({ type: SIGN_UP, payload: data })
 
       })
@@ -78,7 +78,7 @@ export const createReading = (readingObj) => {
     })
       .then(r => r.json())
       .then(newReadingObj => {
-        console.log("GOOD JOB Succesfully created reading!:", newReadingObj)
+        // console.log("GOOD JOB Succesfully created reading!:", newReadingObj)
         dispatch({ type: CREATE_READING, payload: newReadingObj })
         // history.push(`/reading/${newReadingObj.id}`)
       })
@@ -92,7 +92,7 @@ export const getReading = (readingId, history) => {
     fetch(`http://localhost:3000/api/v1/readings/${readingId}`)
       .then(r => r.json())
       .then(newReadingObj => {
-        console.log("GOOD JOB Succesfully got reading!:", newReadingObj)
+        // console.log("GOOD JOB Succesfully got reading!:", newReadingObj)
         dispatch({ type: GET_READING, payload: newReadingObj })
         history.push(`/reading/${newReadingObj.id}`)
       })
@@ -121,7 +121,7 @@ export const saveCards = (cardsArray, readingId) => {
       })
         .then(r => r.json())
         .then(data => {
-          console.log("Save Cards Post", data)
+          // console.log("Save Cards Post", data)
         })
     }
 
@@ -132,11 +132,11 @@ export const saveCards = (cardsArray, readingId) => {
 
 export const getReadings = (userId) => {
   return function (dispatch) {
-    fetch("http://localhost:3000/api/v1/readings")
+    return fetch("http://localhost:3000/api/v1/readings")
       .then(r => r.json())
       .then(readingArray => {
         let newArray = readingArray.filter(readingObj => readingObj['user_id'] === userId)
-        console.log("readings", newArray)
+        // console.log("readings", newArray)
         dispatch({ type: FETCH_READINGS, payload: newArray })
       })
   }
@@ -166,7 +166,7 @@ export const updateReading = (readingObj, readingId) => {
 
 export const deleteReading = (readingId, history) => {
   return function(dispatch){
-    fetch(`http://localhost:3000/api/v1/readings/${readingId}`, {
+    return fetch(`http://localhost:3000/api/v1/readings/${readingId}`, {
       method: "DELETE"
     })
     .then(r => r.json())
