@@ -51,8 +51,8 @@ class CardContainer extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    
+  componentDidUpdate(prevProps) {
+    console.log("prevprops:", prevProps.readingId)
     if (this.props.readingId !== this.state.lastKnownReadingId) {
       this.setState({lastKnownReadingId: this.props.readingId})
     }

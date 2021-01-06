@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING } from './actionTypes'
+import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING, FETCH_READINGS, GO_HOME, UPDATE_READING, DELETE_READING } from './actionTypes'
 
 
 const defaultState = {
@@ -56,6 +56,10 @@ function readingIdReducer(currentState = defaultState.readingId, action) {
       return action.payload.id
     case LOG_OUT:
      return 0
+    case GO_HOME:
+     return 0
+     case DELETE_READING:
+     return 0
     default:
       return currentState
   }
@@ -65,6 +69,12 @@ function readingsReducer(currentState = defaultState.readings, action) {
   switch (action.type) {
     case GET_READING:
       return [...currentState, action.payload]
+    case FETCH_READINGS:
+      return action.payload
+    case UPDATE_READING:
+      return currentState.map(readingObj => readingObj.id === action.payload.id ? action.payload : readingObj) 
+    case DELETE_READING:
+      return currentState.filter(readingObj => readingObj.id !== action.payload)
     default:
       return currentState
   }
