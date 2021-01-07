@@ -23,7 +23,7 @@ class ReadingContainer extends React.Component {
     render() {
         return (
             <div className="reading-container" >
-                <h2>My Readings:</h2>
+                <h2>My Readings</h2>
                 {this.renderReadings()}
 
             </div>

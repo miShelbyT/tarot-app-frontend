@@ -1,27 +1,44 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import QuestionModal from '../Components/QuestionModal'
 
-function HomeCard(props) {
 
-    let history = useHistory();
+class HomeCard extends React.Component {
 
-    function learnHandleClick() {
-        history.push("/learn-more");
-    }
-    function readingHandleClick() {
-        history.push('/new-reading');
+    state = {
+        showModal: false
     }
 
-    return (
-        <div className="card-container">
-            <h1>Third Eye Tarot</h1>
+    learnHandleClick = () => {
 
-            <button onClick={readingHandleClick}className="submit-button">Consult the Cards</button>
+        this.props.history.push("/learn-more");
+    }
 
-            <button onClick={learnHandleClick} className="submit-button">Learn More</button>
-        </div>
-    )
+    // readingHandleClick = () => {
+
+    //     this.props.history.push('/new-reading');
+    // }
+
+    modalClickHandler = () => {
+        this.setState({ showModal: !this.state.showModal })
+    }
+
+
+    render() {
+
+        return (
+            <div className="card-container">
+                <h1>Third Eye Tarot</h1>
+
+                <button onClick={this.modalClickHandler} className="submit-button">Consult the Cards</button>
+
+                <button onClick={this.learnHandleClick} className="submit-button">Learn More</button>
+                {this.state.showModal ? <QuestionModal clickHandler={this.modalClickHandler} /> : null}
+
+            </div>
+        )
+    }
 
 }
 
-export default HomeCard
+export default withRouter(HomeCard)

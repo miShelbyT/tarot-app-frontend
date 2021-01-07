@@ -74,8 +74,8 @@ class ReadingCard extends React.Component {
                 <Grid container direction='column'>
 
                     <Grid item>
-                        <h1>{this.props.reading.name}</h1>
-                        <h3>{this.props.reading.question}</h3>
+                        <h1 style={{ textAlign: "justify", paddingLeft:40 }}>{this.props.reading.name}</h1>
+                        <h3 style={{ textAlign: "justify", paddingLeft:40 }}>{this.props.reading.question}</h3>
                     </Grid>
                     <Grid item>
                         <div >
@@ -85,7 +85,7 @@ class ReadingCard extends React.Component {
                     <Grid item >
                         <div>
                         {!this.state.beenClicked ?
-                            <h3>{this.props.reading["user_comment"]}</h3>
+                            <h3 style={{ textAlign: "justify", paddingLeft:40, maxWidth: "35%" }}>{this.props.reading["user_comment"]}</h3>
                             :
                             <form onSubmit={this.submitHandler}>
                                 <input

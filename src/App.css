@@ -1,51 +1,52 @@
 
-/* Grid CSS */
-
-.parent{
+/* Parent CSS */
+.parent {
   background-color: rgb(255, 251, 248);
+  font-family: 'Noto Serif', serif;
 }
 
-.welcome{
-  background-image: url("https://i.imgur.com/0CWxj1b.png");
+@font-face {
+  font-family: 'Noto Serif', serif;
+  src: url(https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap);
 }
 
-.learn-more{
-  margin-left: 10%;
-  margin-right: 10%;
-  font-size: 15px;
-  text-align: justify;
-  text-justify: inter-word;
-  
-}
+
+
+/* Grid CSS */
 
 .parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(14, 1fr);
+  grid-template-rows: repeat(15, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  
   }
   
   .header { grid-area: 1 / 1 / 2 / 7; }
-  .reading-container { grid-area: 2 / 1 / 12 / 2; }
-  .card-container { grid-area: 2 / 2 / 8 / 7; }
-  .learn-more { grid-area: 2 / 2 / 10 / 7; }
+  .reading-container { grid-area: 2 / 1 / 15 / 2; }
+  .card-container { grid-area: 2 / 2 / 9 / 7; }
+  .learn-more { grid-area: 2 / 2 / 14 / 7; }
   .reading-card { grid-area: 2 / 2 / 10 / 7; }
   .welcome { grid-area: 2 / 1 / 13 / 7; }
-  .reading-form { grid-area: 8 / 2 / 14 / 7; }
+  .reading-form { grid-area: 9 / 2 / 15 / 7; }
 
 /* Component Styling */
-  
+
 /* Header CSS */
   .header {
-    background: rgb(255, 245, 249);
-    color:rgb(29, 29, 29);
-    padding-left: 10px;
+    background: rgb(62, 9, 88);
+    color:rgb(238, 238, 238);
+    /* padding-left: 10px; */
   }
+
 
   .welcome-header { 
     display: inline-block;
-    margin-left: 750px;
+    margin-left: 600px;
+  }
+  .welcome{
+    background-image: url("https://i.imgur.com/0CWxj1b.png");
   }
 
   .app-name {
@@ -53,34 +54,43 @@
   }
 
   .logout-button {
-    background-color: #e665d7;
-    border: darkblue;
-    color: white;
+    font-family: 'Noto Serif', serif;
+    background-color: #fbeafc;
+    border-style: solid;
+    border-width: 2px;
+    border-color:  rgb(62, 9, 88);
+    color: rgb(26, 26, 26);
     font-size: 15pt;
     padding: 7px 10px;
-    margin: 7px 7px;
+    margin: 7px 30px;
     cursor: pointer;
     border-radius: 4px;
-    display: inline-block;
+    display: inline;
+    
   }
 
   .logout-button:hover {
-    background-color: rgb(47, 10, 133);
-    color: rgb(231, 191, 247);
+    background-color: rgb(62, 9, 88);
+    color: rgb(247, 228, 255);
     transition: 1s;
 }
 
   .login-form {
-    float: right;
+    top: 0;
+    width: 65%;
+    margin: 10px
   }
   
   .app-name{
     display: inline-block;
   }
-  /* End Header CSS  */
 
 
   /* Cards CSS */
+
+  .card-container h1 {
+    margin: 15px
+  }
   
   .inner-card-container{ /*in card container rendercards function*/
     display: flex;
@@ -92,9 +102,12 @@
   
 
   .card-button { /*draw card button*/
-    background-color: #e665d7;
-    border: none;
-    color: white;
+    font-family: 'Noto Serif', serif;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    border-color:  rgb(62, 9, 88);
+    color: rgb(26, 26, 26);
     font-size: 15pt;
     padding: 10px 12px;
     margin: 8px 15px;
@@ -104,16 +117,16 @@
   }
 
   .card-button:hover {
-    background-color: rgb(47, 10, 133);
-    color: rgb(231, 191, 247);
+    background-color: rgb(62, 9, 88);
+    color: rgb(247, 228, 255);
     transition: 1s;
 }
 
   .meaning-div {
     overflow: auto;
-    height: 100px;
+    height: 150px;
     max-width: 200px;
-    margin: 15px 15px
+    margin: 15px 15px;
   }
   
   /* Flip Card CSS */
@@ -164,10 +177,12 @@
   /* Reading CSS */
 
   .reading-container {
-    /* background: rgb(114, 36, 114); */
     color:rgb(0, 0, 0);
     background-image: url("https://i.imgur.com/0CWxj1b.png");
-    padding-left: 20px;
+    text-align: center;
+  }
+  .reading-container a:hover {
+    color: rgb(112, 77, 128);
   }
 
   .reading-form {
@@ -177,12 +192,57 @@
     margin: 20px;
     display: inline-block;
     text-align: center;
+    
   }
 
   /* End Reading CSS */
 
+  /* Learn More CSS */
+
+
+.learn-more{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 18px;
+  text-align: justify;
+  text-justify: inter-word
+  
+}
+
+.learn-more ul {
+  list-style: none;
+}
+
+.learn-more ul li::before {content: "▪"; color: rgb(109, 34, 128);
+  display: inline-block; width: 1em;
+  margin-left: -1em
+}
+
+.learn-more p a {
+color: black
+}
+
+/* End Learn More CSS */
+
   
   /* Inputs and Buttons CSS */
+
+  .header a {
+    color: rgb(255, 255, 255);
+  }
+  
+  a {
+    color: rgb(29, 29, 29);
+    text-decoration: none;
+  }
+
+  .learn-more a {
+    color: rgb(81, 16, 107);
+  }
+
+  .learn-more a:hover {
+    color: rgb(220, 136, 253);
+  }
 
   textarea {
     width: 50%;
@@ -194,7 +254,9 @@
   }
 
   input[type=text], [type=password]{
-    width: 35%;
+    width: 30%;
+    height: 20px;
+    margin: 10px;
     padding: 12px 20px;
     margin: 4px 10px 4px 10px;
     border-radius: 4px;
@@ -203,22 +265,72 @@
   }
 
   .submit-button {    /* class controls create reading/hide form and save reading buttons*/
-    background-color: #e377d6;
-    border: none;
-    color: white;
+    font-family: 'Noto Serif', serif;
+    background-color: #fbeafc;
+    border: rgb(43, 43, 43);
+    color: rgb(46, 7, 65);
     font-size: 15pt;
     padding: 8px 8px;
     margin: 0px 10px 10px 10px;
     cursor: pointer;
     border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color:  rgb(62, 9, 88);
   }
 
   .submit-button:hover {
-    background-color: rgb(47, 10, 133);
-    color: rgb(231, 191, 247);
+    background-color: rgb(62, 9, 88);
+    color: rgb(247, 228, 255);
     transition: 1s;
 }
-  /* End Inputs and Buttons CSS */
+
+  button:focus {outline:0;}
+  
+  /* Modal CSS */
+
+  .modal {
+    /* display: none; */
+    position: fixed; 
+    z-index: 1;  
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  /* .off{
+
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(8px);
+    transform: scale(0.33);
+    box-shadow: 1rem 0 0 rgba(black, 0.2); 
+  }
+    @supports (offset-rotate: 0deg) {
+      
+      offset-rotation: 0deg;
+      
+      offset-rotate: 0deg;
+      offset-path: path("M 250,100 S -300,500 -700,-200");
+      .off {
+        offset-distance: 100%;
+      }
+    }
+    @media (prefers-reduced-motion) {
+      offset-path: none;
+    } */
 
   
 

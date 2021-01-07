@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { logIn } from '../redux/actions'
-import Grid from '@material-ui/core/Grid';
 
 
-class LogInForm extends React.Component{
 
-    state ={
+class LogInForm extends React.Component {
+
+    state = {
         ["user_name"]: "",
         password: ""
     }
@@ -15,44 +15,45 @@ class LogInForm extends React.Component{
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    componentDidMount = () => {
-        this.props.submitHandler(undefined)
-    }
 
     submitHandler = (e) => {
         e.preventDefault()
         this.props.submitHandler(this.state)
         this.setState({
-          ["user_name"]: "",
-          password: ""
+            ["user_name"]: "",
+            password: ""
         })
-    
-      }
 
-    render(){
-        return(
-            <>
-            
-             <form className="login-form" onSubmit={this.submitHandler} style={{display:"block"}}>
-                
-                <input
-                    type="text"
-                    value={this.state["user_name"]}
-                    name={["user_name"]}
-                    onChange={this.changeHandler}
-                    placeholder="Username"
-                />
-                <input
-                    type="password"
-                    value={this.state.password}
-                    name="password"
-                    onChange={this.changeHandler}
-                    placeholder="Password"
-                />
-                <button className="logout-button" >Log In</button>
-            </form>
-            
-            </>
+    }
+
+    render() {
+        return (
+            <div className="modal">
+                <div className="modal-content">
+                    <h1 style={{color:"black"}}>Already Have an Account?</h1>
+
+
+                    <form className="login-form" onSubmit={this.submitHandler} style={{ display: "block" }}>
+
+                        <input
+                            type="text"
+                            value={this.state["user_name"]}
+                            name={["user_name"]}
+                            onChange={this.changeHandler}
+                            placeholder="Username"
+                        />
+                        <input
+                            type="password"
+                            value={this.state.password}
+                            name="password"
+                            onChange={this.changeHandler}
+                            placeholder="Password"
+                        />
+                        <button className="logout-button" >Log In</button>
+                    </form>
+                    <button className="submit-button" onClick={this.props.clickHandler} >Go Back</button>
+                </div>
+            </div>
         )
     }
 

@@ -1,4 +1,4 @@
-import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING, FETCH_READINGS, GO_HOME, UPDATE_READING, DELETE_READING } from './actionTypes'
+import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING, FETCH_READINGS, GO_HOME, UPDATE_READING, DELETE_READING, ASK_QUESTION } from './actionTypes'
 
 
 export const getCards = () => {
@@ -27,13 +27,14 @@ export const signUp = (userObj) => {
     })
       .then(r => r.json())
       .then(data => {
-        if (!data['user_name']) {
+        if (!data.id) {
           console.log("user creation failed")
           window.alert("Please Enter a Username and Password")
+        } else {
+          localStorage.setItem("USER_DATA", JSON.stringify(data))
+          dispatch({ type: SIGN_UP, payload: data })
         }
         // console.log("Add User Fetch Data", data['user_name'])
-        localStorage.setItem("USER_DATA", JSON.stringify(data))
-        dispatch({ type: SIGN_UP, payload: data })
 
       })
       .catch(console.log)
@@ -45,8 +46,10 @@ export const logIn = (userObj) => {
   return function (dispatch) {
     if (userObj === undefined) {
       const userDataStr = localStorage.getItem("USER_DATA")
-      if (userDataStr) {
-        dispatch({ type: LOG_IN, payload: JSON.parse(userDataStr) })
+      let userDataObj = JSON.parse(userDataStr)
+      if (userDataObj) {
+        console.log("user data string", userDataObj)
+        dispatch({ type: LOG_IN, payload: userDataObj })
       }
       return
     }
@@ -61,14 +64,14 @@ export const logIn = (userObj) => {
     })
       .then(r => r.json())
       .then(data => {
-        if (data['user_name']) {
+        if (data.id) {
           console.log("found user", data['user_name'])
+          localStorage.setItem("USER_DATA", JSON.stringify(data))
+          dispatch({ type: LOG_IN, payload: data })
         } else {
           console.log("user not found")
           window.alert("Wrong Username or Password Please Try Again")
         }
-        localStorage.setItem("USER_DATA", JSON.stringify(data))
-        dispatch({ type: LOG_IN, payload: data })
       })
       .catch(console.log)
   }
@@ -194,3 +197,6 @@ export const deleteReading = (readingId, history) => {
   }
 }
 
+export const askQuestion = (question) => {
+  return {type: ASK_QUESTION, payload: question}
+}

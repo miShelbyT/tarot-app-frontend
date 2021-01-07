@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING, FETCH_READINGS, GO_HOME, UPDATE_READING, DELETE_READING } from './actionTypes'
+import { GET_CARDS, SIGN_UP, LOG_IN, LOG_OUT, CREATE_READING, SAVE_CARDS, GET_READING, FETCH_READINGS, GO_HOME, UPDATE_READING, DELETE_READING, ASK_QUESTION } from './actionTypes'
 
 
 const defaultState = {
@@ -7,7 +7,8 @@ const defaultState = {
   user: null,
   userId: 0,
   readingId: 0,
-  readings: []
+  readings: [],
+  question: ""
 }
 
 
@@ -55,11 +56,11 @@ function readingIdReducer(currentState = defaultState.readingId, action) {
     case CREATE_READING:
       return action.payload.id
     case LOG_OUT:
-     return 0
+      return 0
     case GO_HOME:
-     return 0
-     case DELETE_READING:
-     return 0
+      return 0
+    case DELETE_READING:
+      return 0
     default:
       return currentState
   }
@@ -72,7 +73,7 @@ function readingsReducer(currentState = defaultState.readings, action) {
     case FETCH_READINGS:
       return action.payload
     case UPDATE_READING:
-      return currentState.map(readingObj => readingObj.id === action.payload.id ? action.payload : readingObj) 
+      return currentState.map(readingObj => readingObj.id === action.payload.id ? action.payload : readingObj)
     case DELETE_READING:
       return currentState.filter(readingObj => readingObj.id !== action.payload)
     default:
@@ -80,6 +81,14 @@ function readingsReducer(currentState = defaultState.readings, action) {
   }
 }
 
+function questionReducer(currentState = defaultState.question, action) {
+  switch (action.type) {
+    case ASK_QUESTION:
+      return action.payload
+    default:
+      return currentState
+  }
+}
 
 
 
@@ -88,7 +97,8 @@ const rootReducer = combineReducers({
   user: userReducer,
   userId: userIdReducer,
   readingId: readingIdReducer,
-  readings: readingsReducer
+  readings: readingsReducer,
+  question: questionReducer
 })
 
 
