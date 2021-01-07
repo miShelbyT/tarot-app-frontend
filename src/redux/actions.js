@@ -27,6 +27,10 @@ export const signUp = (userObj) => {
     })
       .then(r => r.json())
       .then(data => {
+        if (!data['user_name']) {
+          console.log("user creation failed")
+          window.alert("Please Enter a Username and Password")
+        }
         // console.log("Add User Fetch Data", data['user_name'])
         dispatch({ type: SIGN_UP, payload: data })
 
@@ -52,6 +56,7 @@ export const logIn = (userObj) => {
           console.log("found user", data['user_name'])
         } else {
           console.log("user not found")
+          window.alert("Wrong Username or Password Please Try Again")
         }
         dispatch({ type: LOG_IN, payload: data })
       })
