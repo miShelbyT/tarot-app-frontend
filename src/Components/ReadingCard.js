@@ -70,7 +70,7 @@ class ReadingCard extends React.Component {
     render() {
         // console.log(this.state["user_comment"])
         return (
-            <div className="card-container">
+            <div className="reading-card">
                 <Grid container direction='column'>
 
                     <Grid item>

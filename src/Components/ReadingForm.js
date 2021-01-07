@@ -53,7 +53,7 @@ class ReadingForm extends React.Component {
         return(
 
             <div className="reading-form">
-                <button className="submit-button" onClick={this.clickHandler}>{this.state.beenClicked ? "Hide Form" : "Create New Reading" }</button>
+                <button className="submit-button" onClick={this.clickHandler}>{this.state.beenClicked ? "Hide Form" : "Save This Reading" }</button>
                 {this.state.beenClicked ? 
                 
                 <form onSubmit={this.submitHandler}>

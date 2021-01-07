@@ -34,7 +34,7 @@ function Header(props) {
                 <LogInForm />
             }
             <hr style={{
-                borderWidth:2,
+                borderWidth:3,
                 borderColor:"dark grey"
             
             }}></hr>

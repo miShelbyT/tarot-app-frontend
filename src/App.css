@@ -2,7 +2,7 @@
 /* Grid CSS */
 
 .parent{
-  background-color: rgb(253, 250, 251);
+  background-color: rgb(255, 251, 248);
 }
 
 .welcome{
@@ -13,20 +13,24 @@
   margin-left: 10%;
   margin-right: 10%;
   font-size: 15px;
+  text-align: justify;
+  text-justify: inter-word;
   
 }
 
 .parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(20, 1fr);
+  grid-template-rows: repeat(14, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   }
   
   .header { grid-area: 1 / 1 / 2 / 7; }
-  .reading-container { grid-area: 2 / 1 / 14 / 2; }
+  .reading-container { grid-area: 2 / 1 / 12 / 2; }
   .card-container { grid-area: 2 / 2 / 8 / 7; }
+  .learn-more { grid-area: 2 / 2 / 7 / 7; }
+  .reading-card { grid-area: 2 / 2 / 10 / 7; }
   .welcome { grid-area: 2 / 1 / 13 / 7; }
   .reading-form { grid-area: 8 / 2 / 14 / 7; }
 
@@ -34,7 +38,7 @@
   
 /* Header CSS */
   .header {
-    background: rgb(255, 255, 255);
+    background: rgb(255, 245, 249);
     color:rgb(29, 29, 29);
     padding-left: 10px;
   }
@@ -49,8 +53,8 @@
   }
 
   .logout-button {
-    background-color: #e377d6;
-    border: none;
+    background-color: #e665d7;
+    border: darkblue;
     color: white;
     font-size: 15pt;
     padding: 7px 10px;
@@ -59,6 +63,12 @@
     border-radius: 4px;
     display: inline-block;
   }
+
+  .logout-button:hover {
+    background-color: rgb(47, 10, 133);
+    color: rgb(231, 191, 247);
+    transition: 1s;
+}
 
   .login-form {
     float: right;
@@ -82,7 +92,7 @@
   
 
   .card-button { /*draw card button*/
-    background-color: #c21fc7;
+    background-color: #e665d7;
     border: none;
     color: white;
     font-size: 15pt;
@@ -92,6 +102,12 @@
     border-radius: 4px;
     display: inline-block;
   }
+
+  .card-button:hover {
+    background-color: rgb(47, 10, 133);
+    color: rgb(231, 191, 247);
+    transition: 1s;
+}
 
   .meaning-div {
     overflow: auto;
@@ -155,7 +171,7 @@
   }
 
   .reading-form {
-    background: rgb(68, 35, 121);
+    background: rgb(255, 251, 248);
     color:aliceblue;
     padding: 20px;
     margin: 20px;
@@ -196,6 +212,12 @@
     cursor: pointer;
     border-radius: 4px;
   }
+
+  .submit-button:hover {
+    background-color: rgb(47, 10, 133);
+    color: rgb(231, 191, 247);
+    transition: 1s;
+}
   /* End Inputs and Buttons CSS */
 
   
