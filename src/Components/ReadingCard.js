@@ -3,6 +3,8 @@ import CardCard from './CardCard'
 import { Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateReading, deleteReading, getReadings } from '../redux/actions'
+import Grid from '@material-ui/core/Grid';
+
 
 
 
@@ -19,7 +21,13 @@ class ReadingCard extends React.Component {
     renderCards = () => {
         let cardsArray = this.props.reading.cards
         return (
-            cardsArray.map(cardObj => <CardCard key={cardObj.id} cardObj={cardObj} />)
+            <Grid container>
+                {cardsArray.map(cardObj => (
+                    <Grid item>
+                        <CardCard key={cardObj.id} cardObj={cardObj} />
+                    </Grid>
+                ))}
+            </Grid>
         )
     }
 
@@ -63,26 +71,38 @@ class ReadingCard extends React.Component {
         // console.log(this.state["user_comment"])
         return (
             <div className="card-container">
-                <h1>{this.props.reading.name}</h1>
-                <h3>{this.props.reading.question}</h3>
-                {this.renderCards()}
-                {!this.state.beenClicked ?
-                    <h3>{this.props.reading["user_comment"]}</h3>
-                    :
-                    <form onSubmit={this.submitHandler}>
-                        <input
-                            type="text"
-                            name="user_comment"
-                            value={this.state["user_comment"]}
-                            onChange={this.changeHandler}
-                        />
-                        <button className="submit-button">Update</button>
-                    </form>
-                }
-                <button className="submit-button" onClick={this.formClickHandler}>{!this.state.beenClicked ? "Edit Comment" : "Hide Form"}</button>
-                <button className="submit-button" onClick={this.deleteClickHandler}>Delete Reading</button>
-                <button className="submit-button" onClick={this.readingHandleClick}>New Reading</button>
+                <Grid container direction='column'>
 
+                    <Grid item>
+                        <h1>{this.props.reading.name}</h1>
+                        <h3>{this.props.reading.question}</h3>
+                    </Grid>
+                    <Grid item>
+                        <div >
+                            {this.renderCards()}
+                        </div>
+                    </Grid>
+                    <Grid item >
+                        <div>
+                        {!this.state.beenClicked ?
+                            <h3>{this.props.reading["user_comment"]}</h3>
+                            :
+                            <form onSubmit={this.submitHandler}>
+                                <input
+                                    type="text"
+                                    name="user_comment"
+                                    value={this.state["user_comment"]}
+                                    onChange={this.changeHandler}
+                                />
+                                <button className="submit-button">Update</button>
+                            </form>
+                        }
+                        <button className="submit-button" onClick={this.formClickHandler}>{!this.state.beenClicked ? "Edit Comment" : "Hide Form"}</button>
+                        <button className="submit-button" onClick={this.deleteClickHandler}>Delete Reading</button>
+                        <button className="submit-button" onClick={this.readingHandleClick}>New Reading</button>
+                        </div>
+                    </Grid>
+                </Grid>
             </div>
         )
     }

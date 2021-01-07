@@ -16,17 +16,14 @@
 
 /* Component Styling */
   
+/* Header CSS */
   .header {
     background: rgb(204, 66, 204);
     color:aliceblue;
     padding-left: 10px;
-    /* position:relative; */
   }
 
   .welcome-header { 
-    /* float: right; */
-    /* position: absolute; */
-    /* text-align: center */
     display: inline-block;
     margin-left: 650px;
   }
@@ -35,10 +32,7 @@
     display: inline-block;
   }
 
-  .logout-button {  /* class controls log in, sign up and log out buttons */
-    /* position: absolute; */
-    /* right:    0;
-    bottom:   0; */
+  .logout-button {
     background-color: #e377d6;
     border: none;
     color: white;
@@ -50,10 +44,28 @@
     display: inline-block;
   }
 
-  .card-button {
-    /* position: absolute; */
-    /* right:    0;
-    bottom:   0; */
+  .login-form {
+    float: right;
+  }
+  
+  .app-name{
+    display: inline-block;
+  }
+  /* End Header CSS  */
+
+
+  /* Cards CSS */
+  
+  .inner-card-container{ /*in card container rendercards function*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row; 
+    margin: 10px;
+  }
+
+  
+
+  .card-button { /*draw card button*/
     background-color: #c21fc7;
     border: none;
     color: white;
@@ -64,6 +76,60 @@
     border-radius: 4px;
     display: inline-block;
   }
+
+  .meaning-div {
+    overflow: auto;
+    height: 100px;
+    max-width: 200px;
+    margin: 15px 15px
+  }
+  
+  /* Flip Card CSS */
+  
+  .flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+    
+    /* margin: 15px */
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    margin: 20px;
+    /* padding: 25px */
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    
+  }
+  
+  .flip-card-back {
+    color: black;
+  }
+
+  .flip-card-front {
+    transform: rotateY(180deg);
+  }
+
+  /* End Flip Card CSS */
+  /* End Card CSS */
+
+
+  /* Reading CSS */
 
   .reading-container {
     background: rgb(114, 36, 114);
@@ -79,18 +145,10 @@
     text-align: center;
   }
 
-  .card-card {
-    max-height: 450px;
-    display: inline-block;
-    width: 350px;
-    text-align: justify;
-    text-justify: inter-word;
-    overflow: auto;
-  }
+  /* End Reading CSS */
 
-  .card-img{
-    text-align: center;
-  }
+  
+  /* Inputs and Buttons CSS */
 
   textarea {
     width: 50%;
@@ -120,109 +178,27 @@
     cursor: pointer;
     border-radius: 4px;
   }
+  /* End Inputs and Buttons CSS */
 
-  .login-form {
-    float: right;
-    /* margin-left: -10px; */
-  }
   
 
-  .app-name{
+/* code cemetery */
+
+  /* .card-card {
+    max-height: 450px;
     display: inline-block;
-  }
+    width: 350px;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: auto;
+  } */
 
-  /* THE MAINCONTAINER HOLDS EVERYTHING */
-/* .card-container{
-  position: absolute;
-  width: 1000px;
-  height: 200px;
-  background: none;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-/* THE CARD HOLDS THE FRONT AND BACK FACES */
-.card-img{
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  transform-style: preserve-3d;
-  transition: all 0.8s ease;
-}
-
-/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-.card-img :hover{
-  transform: rotateY(180deg);
-}
-
-/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
- .thefront{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  backface-visibility: hidden;
-  overflow: hidden;
-  background: #ffc728;
-  color: #000;
-}
-
-/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
-.theback{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background-image: url("https://i.imgur.com/w9eBTkt.png");
-  backface-visibility: hidden;
-  overflow: hidden;
-  background: #fafafa;
-  color: #333;
-  text-align: center;
-  transform: rotateY(180deg);
-}
-
-
-/*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
-.thefront h1, .theback h1{
-  font-family: 'zilla slab', sans-serif;
-  padding: 30px;
-  font-weight: bold;
-  font-size: 24px;
-  text-align: center;
-}
-
-.thefront p, .theback p{
-  font-family: 'zilla slab', sans-serif;
-  padding: 30px;
-  font-weight: normal;
-  font-size: 12px;
-  text-align: center;
-}
-/*This block (ends here) is merely styling for the flip card, and is NOT an essential part of the flip code */
+  /* .card-img{
+    text-align: center;
     
-
-
-
-
-/* OLD GRID
-    .parent {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(7, 1fr);
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
-      }
-      
-      .header { grid-area: 1 / 1 / 2 / 6; }
-      .reading-container { grid-area: 2 / 1 / 8 / 1; }
-      .card-container { grid-area: 2 / 2 / 5 / 6; }
-      .reading-form { grid-area: 5 / 2 / 8 / 6; } */
+     max-height: 450px;
+   } 
+   
+   /* box-shadow: 0 4px 8px 0 rgba(129, 122, 122, 0.2); */
+   
+   

@@ -68,8 +68,10 @@ class CardContainer extends React.Component {
     return (
       <div className="card-container">
         <h2>Consult the Cards</h2>
+        
         {this.state.cardsDrawn < 5 && !this.props.readingId > 0 ? <button className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
-        {this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards()}
+        <div className="inner-card-container">{this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards()}</div>
+        
       </div>
     )
   }

@@ -1,29 +1,70 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Grid from '@material-ui/core/Grid';
 
-function CardCard(props) {
+class CardCard extends React.Component {
 
-  return (
-    <div className="card-card" >
-      <h4 style={{ textAlign: "center", margin: "7px 7px"}}>{props.cardObj.name} </h4>
-      <div className="card-img">
-        <img style={{
-          maxWidth: "200px",
-          display: "block",
-          marginLeft: "auto",
-          marginRight: "auto"
-        }} src={props.cardObj.img_url} alt={props.cardObj.name} />
-        <p>Meaning: {props.cardObj.meaning}</p>
-      </div>
-    </div>
-  )
+
+  state = {
+    cardClicked: false
+  }
+
+  cardClickHandler = () => {
+    this.setState({ cardClicked: !this.state.cardClicked })
+  }
+
+
+  render() {
+
+
+    return (
+      <>
+      <Grid container direction='column'>
+        <Grid item>
+        <div >
+
+          <div onClick={this.cardClickHandler} className={`flip-card ${!this.state.cardClicked ? "" : "flipped"}`}>
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
+                <img src={this.props.cardObj.img_url} alt="Card Front" style={{
+                  height: "300px",
+                  // display: "block",
+                  // marginLeft: "auto",
+                  // marginRight: "auto"
+                }} />
+
+              </div>
+              <div className="flip-card-back">
+                <img src={"https://i.imgur.com/AqaKQxv.png"} alt="Card Back" style={{
+                  height: "300px",
+                  // display: "block",
+                  // marginLeft: "auto",
+                  // marginRight: "auto"
+                }} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style={{marginTop: 300}} />
+        </Grid>
+        <Grid item>
+        <div className="meaning-div" >
+          {!this.state.cardClicked? null :
+          <>
+          <h4 style={{ textAlign: "center", margin: "7px 7px" }}>{this.props.cardObj.name} </h4>
+          <p>Meaning: {this.props.cardObj.meaning}</p>
+          </>
+          }
+        </div>
+        </Grid>
+        
+        
+
+
+        </Grid>
+      </>
+    )
+  }
 }
 
-{/* <div class="maincontainer">
-
-<div class="thecard">
-
-  <div class="thefront"><h1>Front of Card</h1><p>This is the front of the card. It contains important information. Please see overleaf for more details.</p></div>
-
-  <div class="theback"><h1>Back of Card</h1><p>Your use of this site is subject to the terms and conditions governing this and all transactions.</p> */}
-
 export default CardCard
+
