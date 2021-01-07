@@ -15,6 +15,10 @@ class LogInForm extends React.Component{
         this.setState({ [e.target.name]: e.target.value })
     }
 
+    componentDidMount = () => {
+        this.props.submitHandler(undefined)
+    }
+
     submitHandler = (e) => {
         e.preventDefault()
         this.props.submitHandler(this.state)

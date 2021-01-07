@@ -12,13 +12,27 @@ class CardCard extends React.Component {
     this.setState({ cardClicked: !this.state.cardClicked })
   }
 
+  cardMsg = () => {
+    switch (this.props.cardIdx) {
+      case 0: return "The Current Situation"
+      case 1: return "Events in the Past"
+      case 2: return "Future Events"
+      case 3: return "The Conscious Mind"
+      case 4: return "The Subconscious Mind"
+    }
+    return "unexpected card idx"
+  }
 
   render() {
 
 
     return (
       <>
+      
       <Grid container direction='column' alignItems="flex-start" justify="center" >
+        <Grid item style={{textAlign: "center"}}>
+        {!this.state.cardClicked? null : this.cardMsg()}
+        </Grid>
         <Grid item>
         <div >
 
@@ -36,6 +50,7 @@ class CardCard extends React.Component {
               <div className="flip-card-back">
                 <img src={"https://i.imgur.com/AqaKQxv.png"} alt="Card Back" style={{
                   height: "320px",
+            
                   // display: "block",
                   // marginLeft: "auto",
                   // marginRight: "auto"
@@ -51,7 +66,7 @@ class CardCard extends React.Component {
           {!this.state.cardClicked? null :
           <>
           <h4 style={{ textAlign: "center", margin: "7px 7px" }}>{this.props.cardObj.name} </h4>
-          <p>Meaning: {this.props.cardObj.meaning}</p>
+          <p>{this.props.cardObj.meaning}</p>
           </>
           }
         </div>

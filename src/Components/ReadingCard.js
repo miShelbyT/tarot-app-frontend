@@ -22,9 +22,9 @@ class ReadingCard extends React.Component {
         let cardsArray = this.props.reading.cards
         return (
             <Grid container>
-                {cardsArray.map(cardObj => (
+                {cardsArray.map((cardObj, i) => (
                     <Grid item>
-                        <CardCard key={cardObj.id} cardObj={cardObj} />
+                        <CardCard cardIdx={i} key={cardObj.id} cardObj={cardObj} />
                     </Grid>
                 ))}
             </Grid>

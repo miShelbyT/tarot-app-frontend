@@ -29,7 +29,7 @@
   .header { grid-area: 1 / 1 / 2 / 7; }
   .reading-container { grid-area: 2 / 1 / 12 / 2; }
   .card-container { grid-area: 2 / 2 / 8 / 7; }
-  .learn-more { grid-area: 2 / 2 / 7 / 7; }
+  .learn-more { grid-area: 2 / 2 / 10 / 7; }
   .reading-card { grid-area: 2 / 2 / 10 / 7; }
   .welcome { grid-area: 2 / 1 / 13 / 7; }
   .reading-form { grid-area: 8 / 2 / 14 / 7; }
@@ -45,7 +45,7 @@
 
   .welcome-header { 
     display: inline-block;
-    margin-left: 650px;
+    margin-left: 750px;
   }
 
   .app-name {

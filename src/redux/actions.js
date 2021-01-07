@@ -32,6 +32,7 @@ export const signUp = (userObj) => {
           window.alert("Please Enter a Username and Password")
         }
         // console.log("Add User Fetch Data", data['user_name'])
+        localStorage.setItem("USER_DATA", JSON.stringify(data))
         dispatch({ type: SIGN_UP, payload: data })
 
       })
@@ -42,6 +43,14 @@ export const signUp = (userObj) => {
 
 export const logIn = (userObj) => {
   return function (dispatch) {
+    if (userObj === undefined) {
+      const userDataStr = localStorage.getItem("USER_DATA")
+      if (userDataStr) {
+        dispatch({ type: LOG_IN, payload: JSON.parse(userDataStr) })
+      }
+      return
+    }
+    
     fetch("http://localhost:3000/api/v1/users/login", {
       method: "POST",
       headers: {
@@ -58,6 +67,7 @@ export const logIn = (userObj) => {
           console.log("user not found")
           window.alert("Wrong Username or Password Please Try Again")
         }
+        localStorage.setItem("USER_DATA", JSON.stringify(data))
         dispatch({ type: LOG_IN, payload: data })
       })
       .catch(console.log)
@@ -67,6 +77,7 @@ export const logIn = (userObj) => {
 
 
 export const logOut = () => {
+  localStorage.removeItem("USER_DATA")
   return { type: LOG_OUT }
 }
 

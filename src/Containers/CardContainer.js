@@ -38,7 +38,7 @@ class CardContainer extends React.Component {
   renderCards = () => {
     let cardsArray = this.state.readingCards
     return (
-      cardsArray.map(randomCard => <CardCard key={randomCard.id} cardObj={randomCard} />)
+      cardsArray.map((randomCard, i) => <CardCard cardIdx={i} key={randomCard.id} cardObj={randomCard} />)
     )
   }
 
@@ -69,9 +69,9 @@ class CardContainer extends React.Component {
       <div className="card-container">
         <h2>Consult the Cards</h2>
         
-        {this.state.cardsDrawn < 5 && !this.props.readingId > 0 ? <button className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
+        <div style={{marginTop:40, display:"inline-block"}}></div>
+        {this.state.cardsDrawn < 5 && !this.props.readingId > 0 ? <button style={{display:"inline-block"}} className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
         <div className="inner-card-container">{this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards()}</div>
-        
       </div>
     )
   }
