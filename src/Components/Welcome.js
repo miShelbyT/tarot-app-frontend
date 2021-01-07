@@ -3,9 +3,9 @@ import SignUpForm from './SignUpForm'
 
 function Welcome() {
   return (
-    <>
+    <div className="welcome">
       <SignUpForm />
-    </>
+    </div>
   )
 }
 

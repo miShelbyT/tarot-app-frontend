@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { logIn } from '../redux/actions'
+import Grid from '@material-ui/core/Grid';
+
 
 class LogInForm extends React.Component{
 
@@ -26,7 +28,9 @@ class LogInForm extends React.Component{
     render(){
         return(
             <>
-             <form className="login-form" onSubmit={this.submitHandler}>
+            
+             <form className="login-form" onSubmit={this.submitHandler} style={{display:"block"}}>
+                
                 <input
                     type="text"
                     value={this.state["user_name"]}
@@ -43,6 +47,7 @@ class LogInForm extends React.Component{
                 />
                 <button className="logout-button" >Log In</button>
             </form>
+            
             </>
         )
     }

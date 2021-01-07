@@ -33,7 +33,12 @@ function Header(props) {
                 :
                 <LogInForm />
             }
-        </div>
+            <hr style={{
+                borderWidth:2,
+                borderColor:"dark grey"
+            
+            }}></hr>
+            </div>
     )
 
 }
@@ -43,7 +48,7 @@ const msp = (state) => {
 }
 
 const mdp = (dispatch) => ({
-    logOut: () => dispatch(logOut()),
+                logOut: () => dispatch(logOut()),
     goHome: () => dispatch(goHome())
 })
 

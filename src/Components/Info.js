@@ -4,7 +4,7 @@ function Info(){
 
   return(
 
-<div className="card-container">
+<div className="card-container learn-more">
       <br></br><br></br><br></br><br></br>
       <h2>Welcome To Third Eye Tarot! We look forward to helping you divine your future. Here is a quick intro to the cards, as per our friends at <a href="https://www.mindbodygreen.com/0-18172/how-to-do-a-basic-tarot-reading-for-yourself-or-a-friend.html">mindbodygreen</a> and <a href="https://everybodymind.com/7-things-youd-want-to-know-about-tarot-reading/">everybodymind</a>:</h2>
         <p>

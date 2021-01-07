@@ -1,6 +1,21 @@
 
 /* Grid CSS */
 
+.parent{
+  background-color: rgb(253, 250, 251);
+}
+
+.welcome{
+  background-image: url("https://i.imgur.com/0CWxj1b.png");
+}
+
+.learn-more{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 15px;
+  
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -10,16 +25,17 @@
   }
   
   .header { grid-area: 1 / 1 / 2 / 7; }
-  .reading-container { grid-area: 2 / 1 / 20 / 2; }
-  .card-container { grid-area: 2 / 2 / 13 / 7; }
-  .reading-form { grid-area: 13 / 2 / 20 / 7; }
+  .reading-container { grid-area: 2 / 1 / 14 / 2; }
+  .card-container { grid-area: 2 / 2 / 8 / 7; }
+  .welcome { grid-area: 2 / 1 / 13 / 7; }
+  .reading-form { grid-area: 8 / 2 / 14 / 7; }
 
 /* Component Styling */
   
 /* Header CSS */
   .header {
-    background: rgb(204, 66, 204);
-    color:aliceblue;
+    background: rgb(255, 255, 255);
+    color:rgb(29, 29, 29);
     padding-left: 10px;
   }
 
@@ -132,8 +148,10 @@
   /* Reading CSS */
 
   .reading-container {
-    background: rgb(114, 36, 114);
-    color:aliceblue;
+    /* background: rgb(114, 36, 114); */
+    color:rgb(0, 0, 0);
+    background-image: url("https://i.imgur.com/0CWxj1b.png");
+    padding-left: 20px;
   }
 
   .reading-form {

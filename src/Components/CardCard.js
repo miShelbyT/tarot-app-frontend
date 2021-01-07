@@ -18,7 +18,7 @@ class CardCard extends React.Component {
 
     return (
       <>
-      <Grid container direction='column'>
+      <Grid container direction='column' alignItems="flex-start" justify="center" >
         <Grid item>
         <div >
 
@@ -26,7 +26,7 @@ class CardCard extends React.Component {
             <div className="flip-card-inner">
               <div className="flip-card-front">
                 <img src={this.props.cardObj.img_url} alt="Card Front" style={{
-                  height: "300px",
+                  height: "320px",
                   // display: "block",
                   // marginLeft: "auto",
                   // marginRight: "auto"
@@ -35,7 +35,7 @@ class CardCard extends React.Component {
               </div>
               <div className="flip-card-back">
                 <img src={"https://i.imgur.com/AqaKQxv.png"} alt="Card Back" style={{
-                  height: "300px",
+                  height: "320px",
                   // display: "block",
                   // marginLeft: "auto",
                   // marginRight: "auto"
@@ -44,7 +44,7 @@ class CardCard extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{marginTop: 300}} />
+        <div style={{marginTop: 360}} />
         </Grid>
         <Grid item>
         <div className="meaning-div" >
