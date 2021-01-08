@@ -23,10 +23,10 @@ class HomeCard extends React.Component {
 
         return (
             <div style={{ textAlign: "center" }} className="card-container">
-                <h1>Third Eye Tarot</h1>
-                <img style={{ margin: "50px" }} src="https://i.imgur.com/pMSWzhw.png"
+                <img style={{ marginTop: "50px" }} src="https://i.imgur.com/pMSWzhw.png"
                     alt="Eye Logo"
-                />
+                    />
+                    <h1 className="app-name-home">Third Eye Tarot</h1>
                 <br></br>
                 <button onClick={this.modalClickHandler} className="submit-button">Consult the Cards</button>
 

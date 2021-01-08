@@ -54,7 +54,7 @@ class Header extends React.Component {
                     <Grid item>
                         {this.props.user ?
                             <>
-                                <h1 style={{ marginLeft: "550px" }} className="welcome-header" >Welcome {this.props.user}</h1>
+                                <h2 style={{ marginLeft: "630px" }} className="welcome-header" >Welcome {this.props.user}</h2>
                                 <button className="logout-button" onClick={this.clickHandler}>Log Out</button>
                             </>
                             :
