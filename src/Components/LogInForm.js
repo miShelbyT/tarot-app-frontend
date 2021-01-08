@@ -29,11 +29,11 @@ class LogInForm extends React.Component {
     render() {
         return (
             <div className="modal">
-                <div className="modal-content">
+                <div style={{textAlign:"center"}} className="modal-content">
                     <h1 style={{color:"black"}}>Already Have an Account?</h1>
 
 
-                    <form className="login-form" onSubmit={this.submitHandler} style={{ display: "block" }}>
+                    <form className="login-form" onSubmit={this.submitHandler}>
 
                         <input
                             type="text"
@@ -51,7 +51,7 @@ class LogInForm extends React.Component {
                         />
                         <button className="logout-button" >Log In</button>
                     </form>
-                    <button className="submit-button" onClick={this.props.clickHandler} >Go Back</button>
+                    <button style={{marginTop:"20px"}} className="submit-button" onClick={this.props.clickHandler} >Go Back</button>
                 </div>
             </div>
         )

@@ -66,9 +66,9 @@ class CardContainer extends React.Component {
   render() {
     // console.log(this.props.cards)
     return (
-      <div className="card-container">
-        <h2>Consult the Cards</h2>
-        <h3>{this.props.question}</h3>
+      <div style={{textAlign:"center"}} className="card-container">
+        <h1>Consult the Cards</h1>
+        <h2>{this.props.question}</h2>
         <div style={{marginTop:40, display:"inline-block"}}></div>
         {this.state.cardsDrawn < 5 && !this.props.readingId > 0 ? <button style={{display:"inline-block"}} className="card-button" onClick={this.clickHandler}>Draw a Card</button> : null}
         <div className="inner-card-container">{this.props.cards.length === 0 ? <h1>Loading</h1> : this.renderCards()}</div>

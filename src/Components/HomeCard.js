@@ -14,11 +14,6 @@ class HomeCard extends React.Component {
         this.props.history.push("/learn-more");
     }
 
-    // readingHandleClick = () => {
-
-    //     this.props.history.push('/new-reading');
-    // }
-
     modalClickHandler = () => {
         this.setState({ showModal: !this.state.showModal })
     }
@@ -27,7 +22,7 @@ class HomeCard extends React.Component {
     render() {
 
         return (
-            <div className="card-container">
+            <div style={{textAlign:"center"}} className="card-container">
                 <h1>Third Eye Tarot</h1>
 
                 <button onClick={this.modalClickHandler} className="submit-button">Consult the Cards</button>

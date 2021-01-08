@@ -75,7 +75,7 @@ class ReadingForm extends React.Component {
                             value={this.state["user_comment"]}
                             name="user_comment"
                             onChange={this.changeHandler}
-                            placeholder="Comments my feelings blah blah blah"
+                            placeholder="Reflections on This Reading"
                         /><br></br><br></br>
                         <button className="submit-button">Save Reading</button>
                     </form>
