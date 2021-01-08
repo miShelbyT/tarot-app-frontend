@@ -14,7 +14,11 @@ class Welcome extends React.Component {
   render(){
     return (
       <div style={{textAlign:"center"}}className="welcome">
-        <button onClick={this.signUpClickHandler} style={{marginTop:40}} className="submit-button">{this.state.showModal ? "Never Mind" : "Sign Up"}</button>
+        <img style={{marginTop:"40px", height:"550px"}} src="https://i.imgur.com/GzbbKpE.png"
+             alt="Eye Logo"
+        />
+        <br></br>
+        {this.state.showModal ? null : <button onClick={this.signUpClickHandler} style={{}} className="submit-button">Sign Up</button>}
         { this.state.showModal ? <SignUpForm clickHandler={this.signUpClickHandler}/> : null }
       </div>
     )

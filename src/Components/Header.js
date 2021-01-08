@@ -40,7 +40,7 @@ class Header extends React.Component {
                         <NavLink to={this.props.user ? '/home' : '/welcome'}>
                             <img onClick={this.homeClickHandler}
                                 style={{ height: 70, marginTop: 5, display: "inline-block" }}
-                                src="https://i.imgur.com/IaiHjdD.png"
+                                src="https://i.imgur.com/pMSWzhw.png"
                                 alt="Eye Logo"
                             />
                         </NavLink>
@@ -54,7 +54,7 @@ class Header extends React.Component {
                     <Grid item>
                         {this.props.user ?
                             <>
-                                <h1 style={{marginLeft:"550px"}} className="welcome-header" >Welcome {this.props.user}</h1>
+                                <h1 style={{ marginLeft: "550px" }} className="welcome-header" >Welcome {this.props.user}</h1>
                                 <button className="logout-button" onClick={this.clickHandler}>Log Out</button>
                             </>
                             :

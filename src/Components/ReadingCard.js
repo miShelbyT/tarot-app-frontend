@@ -1,6 +1,6 @@
 import React from 'react'
 import CardCard from './CardCard'
-import { Redirect, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { updateReading, deleteReading, getReadings } from '../redux/actions'
 import Grid from '@material-ui/core/Grid';
@@ -31,9 +31,6 @@ class ReadingCard extends React.Component {
         )
     }
 
-    readingHandleClick = () => {
-        this.props.history.push('/new-reading');
-    }
 
     formClickHandler = () => {
         this.setState({
@@ -99,7 +96,6 @@ class ReadingCard extends React.Component {
                         }
                         <button className="submit-button" onClick={this.formClickHandler}>{!this.state.beenClicked ? "Edit Comment" : "Hide Form"}</button>
                         <button className="submit-button" onClick={this.deleteClickHandler}>Delete Reading</button>
-                        <button className="submit-button" onClick={this.readingHandleClick}>New Reading</button>
                         </div>
                     </Grid>
                 </Grid>

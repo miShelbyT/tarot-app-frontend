@@ -47,6 +47,7 @@
   }
   .welcome{
     background-image: url("https://i.imgur.com/tjN2Cx3.png");
+    background-position: top;
   }
 
   .app-name {
@@ -191,7 +192,7 @@
   }
 
   .reading-name {
-    background-color: rgba(255, 255, 255, 0.7)    /*  10% opaque green */ 
+    background-color: rgba(255, 255, 255, 0.7)     
   }
 
   /* End Reading CSS */

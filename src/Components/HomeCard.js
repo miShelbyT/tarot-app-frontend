@@ -22,9 +22,12 @@ class HomeCard extends React.Component {
     render() {
 
         return (
-            <div style={{textAlign:"center"}} className="card-container">
+            <div style={{ textAlign: "center" }} className="card-container">
                 <h1>Third Eye Tarot</h1>
-
+                <img style={{ margin: "50px" }} src="https://i.imgur.com/pMSWzhw.png"
+                    alt="Eye Logo"
+                />
+                <br></br>
                 <button onClick={this.modalClickHandler} className="submit-button">Consult the Cards</button>
 
                 <button onClick={this.learnHandleClick} className="submit-button">Learn More</button>
