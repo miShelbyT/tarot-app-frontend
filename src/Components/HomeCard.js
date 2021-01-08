@@ -22,7 +22,7 @@ class HomeCard extends React.Component {
     render() {
 
         return (
-            <div style={{ textAlign: "center" }} className="card-container">
+            <div style={{ textAlign: "center" }} className="home-card">
                 <img style={{ marginTop: "50px" }} src="https://i.imgur.com/pMSWzhw.png"
                     alt="Eye Logo"
                     />

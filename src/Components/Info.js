@@ -1,11 +1,21 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid';
 
 function Info() {
 
   return (
 
     <div className="card-container learn-more">
-      <br></br><br></br><br></br><br></br>
+      <Grid container direction="row" justify="center" alignItems="center"
+      >
+        <Grid item>
+          <img
+            style={{ height: 90, marginTop: 20, textAlign: "center" }}
+            src="https://i.imgur.com/pMSWzhw.png"
+            alt="Eye Logo"
+          />
+        </Grid>
+      </Grid>
       <h2>Welcome To Third Eye Tarot!</h2>
       <h2>We are here to help you divine answers from the cards. </h2>
       <p>

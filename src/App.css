@@ -1,7 +1,7 @@
 
 /* Parent CSS */
 .parent {
-  background-color: rgb(255, 251, 248);
+  background-color: rgb(250, 240, 255);
   font-family: 'Noto Serif', serif;
 }
 
@@ -30,6 +30,7 @@
   .header { grid-area: 1 / 1 / 2 / 7; }
   .reading-container { grid-area: 2 / 1 / 15 / 2; }
   .card-container { grid-area: 2 / 2 / 9 / 7; }
+  .home-card { grid-area: 2 / 2 / 9 / 7; }
   .learn-more { grid-area: 2 / 2 / 14 / 7; }
   .reading-card { grid-area: 2 / 2 / 10 / 7; }
   .welcome { grid-area: 2 / 1 / 13 / 7; }
@@ -38,6 +39,11 @@
 /* Component Styling */
 
 /* Header CSS */
+
+.home-card{
+  background-color: rgb(253, 250, 255);
+}
+
   .header {
     background: rgb(46, 7, 65);
     color:rgb(238, 238, 238);
