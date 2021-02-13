@@ -144,7 +144,6 @@ export const saveCards = (cardsArray, readingId) => {
         })
     }
 
-
     dispatch({ type: SAVE_CARDS })
   }
 }

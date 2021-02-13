@@ -45,7 +45,7 @@ class SignUpForm extends React.Component {
               onChange={this.changeHandler}
               placeholder="Password"
             />
-            <button style={{ margin: "10px", }} className="logout-button" >Sign Up</button>
+            {/* <button style={{ margin: "10px", }} className="logout-button" >Sign Up</button> */}
           </form> 
           <button style={{ margin: "10px", }} onClick={this.props.clickHandler} className="submit-button"> Go Back</button>
         </div>

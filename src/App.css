@@ -20,21 +20,24 @@
 
 .parent {
   display: grid;
+  width: 100vw;
+  height: 100vh;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(15, 1fr);
+  grid-template-rows: repeat(18, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   
   }
   
-  .header { grid-area: 1 / 1 / 2 / 7; }
-  .reading-container { grid-area: 2 / 1 / 15 / 2; }
-  .card-container { grid-area: 2 / 2 / 9 / 7; }
-  .home-card { grid-area: 2 / 2 / 14 / 7; }
-  .learn-more { grid-area: 2 / 2 / 14 / 7; }
-  .reading-card { grid-area: 2 / 2 / 10 / 7; }
-  .welcome { grid-area: 2 / 1 / 13 / 7; }
-  .reading-form { grid-area: 9 / 2 / 15 / 7; }
+  .header { grid-area: 1 / 1 / 2 / -1; }
+  .reading-container { grid-area: 2 / 1 / -1 / 2; }
+  .card-container { grid-area: 2 / 2 / 8 / -1; }
+  .inner-card-container { grid-area: 2 / 2 / 8 / -1; }
+  .home-card { grid-area: 2 / 2 / -1 / -1; }
+  .learn-more { grid-area: 2 / 2 / -1 / -1; }
+  .reading-card { grid-area: 2 / 2 / 10 / -1; }
+  .welcome { grid-area: 2 / 1 / -1 / -1; }
+  .reading-form { grid-area: 14 / 2 / -1 / -1; }
 
 /* Component Styling */
 
@@ -47,7 +50,13 @@
   .header {
     background: rgb(46, 7, 65);
     color:rgb(238, 238, 238);
-    /* padding-left: 10px; */
+    padding: 5px;
+  }
+  .header button {
+    position: absolute;
+    top:45px;
+    right: 1em;
+    margin: 5px;
   }
 
 
@@ -82,7 +91,10 @@
     margin: 7px 30px;
     cursor: pointer;
     border-radius: 4px;
-    display: inline;
+    /* display: inline; */
+    position: absolute;
+    top:35px;
+    right: 0;
     
   }
 
@@ -124,7 +136,7 @@
     margin: 8px 15px;
     cursor: pointer;
     border-radius: 4px;
-    display: inline-block;
+    display: inline;
   }
 
   .card-button:hover {
@@ -292,7 +304,7 @@ color: black
     color: rgb(46, 7, 65);
     font-size: 15pt;
     padding: 8px 8px;
-    margin: 0px 10px 10px 10px;
+    margin: 20px 10px 10px 10px;
     cursor: pointer;
     border-radius: 4px;
     border-style: solid;
@@ -314,14 +326,14 @@ color: black
     /* display: none; */
     position: fixed; 
     z-index: 1;  
-    padding-top: 100px; /* Location of the box */
-    left: 0;
+    padding-top: 300px;/* Location of the box */
     top: 0;
+    left: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
   }
 
   .modal-content {
