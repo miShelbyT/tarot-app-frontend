@@ -29,10 +29,8 @@ class LogInForm extends React.Component {
     render() {
         return (
             <div className="modal">
-                <div style={{textAlign:"center"}} className="modal-content">
-                    <h1 style={{color:"black"}}>Already Have an Account?</h1>
-
-
+                <div className="modal-content">  
+                    <h1>Third Eye Login:</h1>
                     <form className="login-form" onSubmit={this.submitHandler}>
 
                         <input
@@ -49,9 +47,11 @@ class LogInForm extends React.Component {
                             onChange={this.changeHandler}
                             placeholder="Password"
                         />
-                        <button className="logout-button" >Log In</button>
+                        <button className="submit-button" >Log In</button>
                     </form>
-                    <button style={{marginTop:"20px"}} className="submit-button" onClick={this.props.clickHandler} >Go Back</button>
+                    <br></br>
+                    <button className="submit-button" onClick={this.props.clickHandler} >Go Back</button>
+                    
                 </div>
             </div>
         )

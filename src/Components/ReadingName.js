@@ -6,11 +6,6 @@ function ReadingName(props) {
         <div className="reading-name">
             <NavLink to={`/reading/${props.readingObj.id}`}>
                 <h3>{props.readingObj.name || 'Unnamed'}</h3>
-                {/* <hr style={{
-                    borderWidth: 1,
-                    borderColor:"rgb(155, 155, 155)",
-                    borderStyle:"inset"
-                }}></hr> */}
             </NavLink>
         </div>
     )

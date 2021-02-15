@@ -3,9 +3,9 @@ import RootContainer from './Containers/RootContainer'
 
 function App() {
   return (
-    <div>
+    <>
     <RootContainer />
-    </div>
+    </>
   );
 }
 

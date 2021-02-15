@@ -14,11 +14,6 @@ class ReadingContainer extends React.Component {
         return this.props.readings.map(readingObj => <ReadingName key={readingObj.id} readingObj={readingObj} />)
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps.readings !== this.props.readings) {
-    //         this.props.getReadings(this.props.userId)
-    //     }
-    // }
 
     render() {
         return (

@@ -38,12 +38,6 @@ class ReadingForm extends React.Component {
 
     clickHandler = () => {
         this.setState({ beenClicked: !this.state.beenClicked })
-
-        // if(this.state.beenClicked){
-        //     this.setState({beenClicked: false})
-        // } else {
-        //     this.setState({beenClicked: true})
-        // }
     }
 
 

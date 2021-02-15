@@ -26,7 +26,7 @@ class QuestionModal extends React.Component {
 
     render() {
         return (
-            <div className="modal">
+            <div className="modal question">
                 <div style={{ textAlign: "center" }} className="modal-content">
                     <h1>What do you wish to ask the cards?</h1>
                     <br></br>

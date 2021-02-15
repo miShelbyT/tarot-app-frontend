@@ -2,7 +2,6 @@ import React from 'react'
 import LogInForm from './LogInForm'
 import { connect } from 'react-redux'
 import { logOut, goHome, logIn } from '../redux/actions'
-import Grid from '@material-ui/core/Grid';
 import { NavLink } from 'react-router-dom'
 
 class Header extends React.Component {
@@ -33,28 +32,20 @@ class Header extends React.Component {
 
         return (
             <div className="header">
-                {/* <Grid container spacing={4} alignItems='center' justify='center'>
-
-
-                    <Grid item> */}
+                
                         <NavLink to={this.props.user ? '/home' : '/welcome'}>
                             <img onClick={this.homeClickHandler}
-                                style={{ height: 70, marginTop: 7, display: "inline-block" }}
                                 src="https://i.imgur.com/pMSWzhw.png"
                                 alt="Eye Logo"
                             />
                         </NavLink>
-                    {/* </Grid> */}
-                    {/* <Grid item> */}
                         <NavLink to={this.props.user ? '/home' : '/welcome'}>
-                            <h1 onClick={this.homeClickHandler} className="app-name" style={{}}>Third Eye Tarot</h1>
+                            <h1 onClick={this.homeClickHandler} className="app-name" >Third Eye Tarot</h1>
                         </NavLink>
-                    {/* </Grid> */}
-
-                    {/* <Grid item> */}
+                    
                         {this.props.user ?
                             <>
-                                <h2 style={{ marginLeft: "530px" }} className="welcome-header" >Welcome, {this.props.user}</h2>
+                                <h2 className="welcome-header" >Welcome, {this.props.user}</h2>
                                 <button className="logout-button" onClick={this.clickHandler}>Log Out</button>
                             </>
                             :
@@ -68,9 +59,7 @@ class Header extends React.Component {
                                 {this.state.showModal ? <LogInForm clickHandler={this.logInClickHandler} /> : null}
                             </>
                         }
-                    {/* </Grid> */}
-
-                {/* </Grid> */}
+                    
             </div>
         )
     }

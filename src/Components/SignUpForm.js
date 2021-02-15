@@ -28,7 +28,7 @@ class SignUpForm extends React.Component {
       <div className="modal">
         <div className="modal-content">
 
-          <h1>Sign Up to Third Eye Tarot</h1>
+          <h1>Sign Up to Third Eye Tarot:</h1>
 
           <form onSubmit={this.submitHandler}>
             <input
@@ -45,9 +45,10 @@ class SignUpForm extends React.Component {
               onChange={this.changeHandler}
               placeholder="Password"
             />
-            {/* <button style={{ margin: "10px", }} className="logout-button" >Sign Up</button> */}
+            <br></br>
+            <button style={{ margin: "10px", }} onClick={this.props.clickHandler} className="submit-button"> Go Back</button>
           </form> 
-          <button style={{ margin: "10px", }} onClick={this.props.clickHandler} className="submit-button"> Go Back</button>
+          
         </div>
       </div>
     )

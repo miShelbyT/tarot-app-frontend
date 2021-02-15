@@ -29,9 +29,9 @@ class CardCard extends React.Component {
     return (
       <>
 
-        <Grid container direction='column' alignItems="flex-start" justify="center" >
-          <Grid item style={{ textAlign: "center", paddingLeft: 35, }}>
-            <h4 style={{ margin: 0 }}>{!this.state.cardClicked ? null : this.cardMsg()}</h4>
+        <Grid container direction='column' alignItems="stretch" justify="center" >
+          <Grid item style={{ textAlign: "center", paddingLeft: 35}}>
+            <h4 className="meaning-title">{!this.state.cardClicked ? null : this.cardMsg()}</h4>
           </Grid>
           <Grid item>
             <div >
@@ -60,7 +60,7 @@ class CardCard extends React.Component {
             <div className="meaning-div" >
               {!this.state.cardClicked ? null :
                 <>
-                  <h4 style={{ textAlign: "justify", paddingLeft: 40 }}>{this.props.cardObj.name} </h4>
+                  <h4>{this.props.cardObj.name} </h4>
                   <p>{this.props.cardObj.meaning}</p>
 
                 </>
