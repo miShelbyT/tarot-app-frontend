@@ -6,7 +6,7 @@ Third Eye Tarot is a fun and introspective app idea that allows the user to sign
 * Utilizes localStorage to store encrypted user information client-side
 * Implemented Redux to manage state
 * Handled serializers on Rails back end to access/manage nested data
-* Used Material UI for grids and vanilla CSS for all other styling 
+* Used Material UI for card grids and vanilla CSS for all other styling 
 
 ## A big thanks to all of our instructors and coaches at the Flatiron School for their support. Also great big shout out to hubby Chris for taking over all dog walks as well as all coffee/food/water intake. <3 
 
